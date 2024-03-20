@@ -1,0 +1,18 @@
+{
+  "status": 0,
+  "result": [
+    {
+      "createdById": "005bm0000007RecAAE",
+      "createdByName": "Yan Nascimento",
+      "createdDate": "2024-03-14T18:12:53.000Z",
+      "fileName": "profileSessionSettings/PT1_profileSessionSetting1479361192857.profileSessionSetting",
+      "fullName": "PT1_profileSessionSetting1479361192857",
+      "id": "0HUbm0000001LX3GAM",
+      "lastModifiedById": "005bm0000007RecAAE",
+      "lastModifiedByName": "Yan Nascimento",
+      "lastModifiedDate": "2024-03-14T18:12:53.000Z",
+      "manageableState": "unmanaged",
+      "type": "ProfileSessionSetting"
+    }
+  ]
+}
