@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
+	<types>
+		<members>GetAdopter2Information</members>
+		<members>GetAdopter2InformationTest</members>
+		<name>ApexClass</name>
+	</types>
+	<types>
+		<members>Animal__c</members>
+		<members>Adopter__c</members>
+		<members>Adoption__c</members>
+		<members>Medical_Care__c</members>
+		<members>Medical_Cost__c</members>
+		<name>CustomObject</name>
+	</types>
+    	<types>
+		<members>Animal__c</members>
+		<members>Adopter__c</members>
+		<members>Adoption__c</members>
+		<members>Medical_Care__c</members>
+		<members>Medical_Cost__c</members>
+		<name>CustomTab</name>
+	</types>
     <types>
-        <members>Adopter2__c</members>
-        <members>Adoption__c</members>
-        <name>CustomObject</name>
-    </types>
-    <version>59.0</version>
+		<members>AdoptDog</members>
+		<name>CustomApplication</name>
+	</types>
+    <types>
+		<members>AdoptDog_UtilityBar</members>
+		<members>Adoption_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<version>58.0</version>
 </Package>

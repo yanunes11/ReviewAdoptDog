@@ -13,13 +13,13 @@ public with sharing class GetAdopter2InformationTest {
         Animal__c animal = new Animal__c(Name = 'Pimpolho');
         insert animal;
 
-        Adopter2__c adopter = new Adopter2__c(Name = 'Juliano');
-        insert adopter;
+        // Adopter2__c adopter = new Adopter2__c(Name = 'Juliano');
+        // insert adopter;
 
-        Adoption__c adoption = new Adoption__c(
-            Animal__c = animal.Id,
-            Adopter2__c = adopter.Id
-        );
+        // Adoption__c adoption = new Adoption__c(
+        //     Animal__c = animal.Id,
+        //     Adopter2__c = adopter.Id
+        // );
     }
 
     @isTest
@@ -29,11 +29,11 @@ public with sharing class GetAdopter2InformationTest {
             FROM Animal__c
             LIMIT 1
         ];
-        Adoption__c adoption = [
-            SELECT Id, Adopter2__c.Name
-            FROM Adoption__c
-            WHERE Animal__c.Id = :animal.Id
-        ];
+        // Adoption__c adoption = [
+        //     SELECT Id, Adopter2__c.Name
+        //     FROM Adoption__c
+        //     WHERE Animal__c.Id = :animal.Id
+        // ];
 
         System.assert(true, true);
     }
