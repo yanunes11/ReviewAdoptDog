@@ -1,7 +1,7 @@
-public with sharing class GetAdopter2Information {
+public with sharing class GetAdopterInfo {
 
     //get Adopter Id from adoptions to Animal GetAdopter2Information.getAdopter2IdFromAdoption
-    public static Map<String, String> getAdopter2IdFromAdoption(Id animalId) {
+    public static Map<String, String> getAdopterIdFromAdoption(Id animalId) {
 
         Adoption__c adoption = [
             SELECT Id, Adopter__r.Id, Adopter__r.Name

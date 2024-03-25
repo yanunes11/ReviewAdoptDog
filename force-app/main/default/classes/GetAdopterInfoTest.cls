@@ -1,12 +1,5 @@
-/*
-    * @author : Yan Nascimento
-    * @Date : 2024/03/21
-    * @Description : test the GetAdopter2Information class
-    * @log : 2024/03/21 - created
-*/
-
-@isTest
-public with sharing class GetAdopter2InformationTest {
+@IsTest
+public with sharing class GetAdopterInfoTest {
 
     @TestSetup
     static void makeData(){
@@ -23,8 +16,8 @@ public with sharing class GetAdopter2InformationTest {
         insert adoption;
     }
 
-    @isTest
-    public static void getAdopter2InfoTest() {
+    @IsTest
+    public static void getAdopterIdTest() {
         Animal__c animal = [
             SELECT Id
             FROM Animal__c
@@ -46,7 +39,7 @@ public with sharing class GetAdopter2InformationTest {
         ];
 
         Test.startTest();
-        Map<String, String> adopterMapInfo = GetAdopter2Information.getAdopter2IdFromAdoption(animal.Id);
+        Map<String, String> adopterMapInfo = GetAdopterInformation.getAdopterIdFromAdoption(animal.Id);
         Test.stopTest();
         String adopterId = new List<String> (adopterMapInfo.keySet()).get(0);
         
