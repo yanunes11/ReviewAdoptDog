@@ -1,0 +1,42 @@
+{
+  "summary": {
+    "outcome": "Passed",
+    "testsRan": 1,
+    "passing": 1,
+    "failing": 0,
+    "skipped": 0,
+    "passRate": "100%",
+    "failRate": "0%",
+    "skipRate": "0%",
+    "testStartTime": "2024-03-25T18:52:25.000Z",
+    "testExecutionTimeInMs": 51,
+    "testTotalTimeInMs": 51,
+    "commandTimeInMs": 528,
+    "hostname": "https://cunning-unicorn-6zxmbq-dev-ed.trailblaze.my.salesforce.com",
+    "orgId": "00Daj000003lBiLEAU",
+    "username": "yan.nascimento@cunning-unicorn-6zxmbq.com",
+    "testRunId": "707aj000001Js98",
+    "userId": "005aj000002TQ62AAG"
+  },
+  "tests": [
+    {
+      "id": "07Maj000000ILvdEAG",
+      "queueItemId": "709aj000000sdEkAAI",
+      "stackTrace": null,
+      "message": null,
+      "asyncApexJobId": "707aj000001Js98AAC",
+      "methodName": "getAdopter2InfoTest",
+      "outcome": "Pass",
+      "apexLogId": "07Laj000000o7PlEAI",
+      "apexClass": {
+        "id": "01paj000002OWzOAAW",
+        "name": "GetAdopter2InformationTest",
+        "namespacePrefix": null,
+        "fullName": "GetAdopter2InformationTest"
+      },
+      "runTime": 51,
+      "testTimestamp": "2024-03-25T18:52:25.000+0000",
+      "fullName": "GetAdopter2InformationTest.getAdopter2InfoTest"
+    }
+  ]
+}
