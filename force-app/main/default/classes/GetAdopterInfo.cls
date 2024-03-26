@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/03/26
+    * @Description : retrieve the adopter name to update the Animal__c.Adopter_Name__c field
+    * @log : 2024/03/22 - created
+*/
 public with sharing class GetAdopterInfo {
 
     //get Adopter Id from adoptions to Animal GetAdopter2Information.getAdopter2IdFromAdoption
