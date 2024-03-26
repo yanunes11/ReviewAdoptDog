@@ -1,11 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
+		<members>Adopter__c</members>
+		<members>Adoption__c</members>
+		<members>Animal__c</members>
+		<members>Medical_Care__c</members>
+		<members>Medical_Cost__c</members>
+		<name>CustomObject</name>
+	</types>
+	<types>
+		<members>Adopter__c-Adopter Layout</members>
+		<members>Adoption__c-Adoption Layout</members>
+		<members>Animal__c-Animal Layout</members>
+		<members>Medical_Care__c-Medical Care Layout</members>
+		<members>Medical_Cost__c-Medical Cost Layout</members>
+		<name>Layout</name>
+	</types>
+<!--
+	<types>
 		<members>GetAdopterInfo</members>
 		<members>GetAdopterInfoTest</members>
 		<name>ApexClass</name>
 	</types>
-<!--
 	<types>
 		<members>Screenshot_20240312_at_155520</members>
 		<name>ContentAsset</name>
@@ -13,14 +29,6 @@
 	<types>
 		<members>AdoptDog</members>
 		<name>CustomApplication</name>
-	</types>
-	<types>
-		<members>Adopter__c</members>
-		<members>Adoption__c</members>
-		<members>Animal__c</members>
-		<members>Medical_Care__c</members>
-		<members>Medical_Cost__c</members>
-		<name>CustomObject</name>
 	</types>
 	<types>
 		<members>Adopter__c</members>
