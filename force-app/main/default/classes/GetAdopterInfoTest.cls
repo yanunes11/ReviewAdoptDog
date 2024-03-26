@@ -39,7 +39,7 @@ public with sharing class GetAdopterInfoTest {
         ];
 
         Test.startTest();
-        Map<String, String> adopterMapInfo = GetAdopterInformation.getAdopterIdFromAdoption(animal.Id);
+        Map<String, String> adopterMapInfo = GetAdopterInfo.getAdopterIdFromAdoption(animal.Id);
         Test.stopTest();
         String adopterId = new List<String> (adopterMapInfo.keySet()).get(0);
         
