@@ -8,4 +8,5 @@ trigger AdopterTrigger on Adopter__c (after insert, after update) {
     newOldValuesMap.put('oldMap', Trigger.oldMap);
 
     AdopterTriggerHandler handler = new AdopterTriggerHandler(String.valueOf(Trigger.operationType), newOldValues, newOldValuesMap);
+    handler.switchOperationType();
 }

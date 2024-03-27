@@ -1,24 +1,25 @@
 public with sharing class AdopterTriggerHandler implements TriggerHandler {
     private List<Adopter__c> newValues;
     private List<Adopter__c> oldValues;
-    private map<Id, Adopter__c> newMap;
-    private map<Id, Adopter__c> oldMap;
+    private Map<Id, Adopter__c> newMap;
+    private Map<Id, Adopter__c> oldMap;
+    private Map<String, List<Adopter__c>> newOldValues;
+    private Map<String, Map<Id, Adopter__c>> newOldValuesMap;
     private String operationType;
-    
-    public AdopterTriggerHelper helper;
 
+    //Constructor
     public AdopterTriggerHandler(String operationType, Map<String, List<Adopter__c>> newOldValues, Map<String, Map<Id, Adopter__c>> newOldValuesMap) {
         this.newValues = newOldValues.get('new');
         this.oldValues = newOldValues.get('old');
         this.newMap = newOldValuesMap.get('newMap');
         this.oldMap = newOldValuesMap.get('oldMap');
+        this.newOldValues = newOldValues;
+        this.newOldValuesMap = newOldValuesMap;
         this.operationType = operationType;
-        this.helper = new AdopterTriggerHelper();
-        switchOperationType(operationType, newOldValues, newOldValuesMap);
     }
 
-    public void switchOperationType(String operationType, Map<String, List<Adopter__c>> newOldValues, Map<String, Map<Id, Adopter__c>> newOldValuesMap) {
-        System.debug('operatioType: '+this.operationType);
+    public void switchOperationType() {
+        System.debug('YNASC operatioType: '+this.operationType);
         switch on operationType {
             when  'AFTER_INSERT' {
                 afterInsert(newValues, newMap);
@@ -30,26 +31,26 @@ public with sharing class AdopterTriggerHandler implements TriggerHandler {
     }
 
     public void beforeInsert(List<Adopter__c> newAdopters) {
-        System.debug('beforeInsert');
+        System.debug('YNASC beforeInsert');
     }
     public void beforeUpdate(Map<String, List<SObject>> newOldAdopters, Map<String, Map<Id, SObject>> newOldAdoptersMap) {
-        System.debug('beforeUpdate');
+        System.debug('YNASC beforeUpdate');
     }
     public void beforeDelete(List<Adopter__c> oldAdopters, Map<ID, SObject> oldAdopterMap) {
-        System.debug('beforeDelete');
+        System.debug('YNASC beforeDelete');
     }
     public void afterInsert(List<Adopter__c> newAdopters, Map<ID, SObject> newAdopterMap) {
-        System.debug('afterInsert');
-        helper.getAdopterNameToInsertOnAnimal();
+        System.debug('YNASC afterInsert');
+        AdopterTriggerHelper.getAdopterNameToInsertOnAnimal();
     }
     public void afterUpdate(Map<String, List<SObject>> newOldAdopters, Map<String, Map<Id, SObject>> newOldAdoptersMap) {
-        System.debug('afterUpdate');
-        helper.getAdopterNameToInsertOnAnimal();
+        System.debug('YNASC afterUpdate');
+        AdopterTriggerHelper.getAdopterNameToInsertOnAnimal();
     }
     public void afterDelete(List<Adopter__c> oldAdopters, Map<ID, SObject> oldAdopterMap) {
-        System.debug('afterDelete');
+        System.debug('YNASC afterDelete');
     }
     public void afterUndelete(List<Adopter__c> newAdopters, Map<ID, SObject> newAdopterMap) {
-        System.debug('afterUndelete');
+        System.debug('YNASC afterUndelete');
     }
 }

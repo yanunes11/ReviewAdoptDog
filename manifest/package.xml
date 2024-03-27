@@ -7,11 +7,14 @@
 		<members>TriggerHandler</members>
 		<members>AdopterTriggerHandler</members>
 		<members>AdopterTriggerHelper</members>
+		<members>AdoptionTriggerHandler</members>
+		<members>AdoptionTriggerHelper</members>
 		<name>ApexClass</name>
 	</types>
 
 	<types>
 		<members>AdopterTrigger</members>
+		<members>AdoptionTrigger</members>
 		<name>ApexTrigger</name>
 	</types>
 
