@@ -6,6 +6,7 @@
 		<members>GetAdopterInfoTest</members>
 		<members>TriggerHandler</members>
 		<members>AdopterTriggerHandler</members>
+		<members>AdopterTriggerHelper</members>
 		<name>ApexClass</name>
 	</types>
 
