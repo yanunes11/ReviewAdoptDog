@@ -4,7 +4,7 @@
 	<types>
 		<members>GetAdopterInfo</members>
 		<members>GetAdopterInfoTest</members>
-		<members>TriggerHandler</members>
+		<members>TriggerHandlerInterface</members>
 		<members>AdopterTriggerHandler</members>
 		<members>AdopterTriggerHelper</members>
 		<members>AdoptionTriggerHandler</members>

@@ -24,13 +24,19 @@ public with sharing class AdoptionTriggerHandler {
             when  'AFTER_INSERT' {
                 afterInsert(newValues, newMap);
             }
+            when 'BEFORE_INSERT' {
+                beforeInsert(newValues);
+            }
             when else {
                 afterUpdate(newOldValues, newOldValuesMap);
             }
         }
     }
 
-    public void beforeInsert(List<Adoption__c> newRecords) {System.debug('YNASC beforeInsert');}
+    public void beforeInsert(List<Adoption__c> newRecords) {
+        System.debug('YNASC beforeInsert');
+        AdoptionTriggerHelper.checkAnimalHasBeenAdopted(newRecords);
+    }
     public void beforeUpdate(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap){
         System.debug('YNASC beforeInsert');
     }

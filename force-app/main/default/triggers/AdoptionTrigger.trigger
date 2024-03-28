@@ -1,4 +1,4 @@
-trigger AdoptionTrigger on Adoption__c (after insert, after update) {
+trigger AdoptionTrigger on Adoption__c (before insert, before update, after insert, after update) {
     Map<String, List<Adoption__c>> newOldValues = new Map<String, List<Adoption__c>>();
     newOldValues.put('new', Trigger.new);
     newOldValues.put('old', Trigger.old);

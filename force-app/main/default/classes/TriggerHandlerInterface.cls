@@ -1,4 +1,4 @@
-public interface TriggerHandler {
+public interface TriggerHandlerInterface {
     void beforeInsert(List<SObject> newRecords);
     void beforeUpdate(Map<String, List<SObject>> newOldAdopters, Map<String, Map<Id, SObject>> newOldAdoptersMap);
     void beforeDelete(List<SObject> oldRecords, Map<ID, SObject> oldRecordMap);
