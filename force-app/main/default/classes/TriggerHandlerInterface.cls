@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/03/25
+    * @Description : interface to handle all the triggers.
+    * @log : 2024/03/25 - created
+*/
 public interface TriggerHandlerInterface {
     void beforeInsert(List<SObject> newRecords);
     void beforeUpdate(Map<String, List<SObject>> newOldAdopters, Map<String, Map<Id, SObject>> newOldAdoptersMap);

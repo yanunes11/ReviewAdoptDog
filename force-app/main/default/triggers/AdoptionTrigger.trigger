@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/03/25
+    * @Description : trigger for the adoption object.
+    * @log : 2024/03/25 - created
+*/
 trigger AdoptionTrigger on Adoption__c (before insert, before update, after insert, after update) {
     Map<String, List<Adoption__c>> newOldValues = new Map<String, List<Adoption__c>>();
     newOldValues.put('new', Trigger.new);

@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/03/25
+    * @Description : handle the trigger for Adoption object.
+    * @log : 2024/03/25 - created
+*/
 public with sharing class AdoptionTriggerHandler {
     private List<Adoption__c> newValues;
     private List<Adoption__c> oldValues;

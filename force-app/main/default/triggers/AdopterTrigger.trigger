@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/03/25
+    * @Description : trigger for Adopter object.
+    * @log : 2024/03/25 - created
+*/
 trigger AdopterTrigger on Adopter__c (after insert, after update) {
 
     Map<String, List<Adopter__c>> newOldValues = new Map<String, List<Adopter__c>>();
