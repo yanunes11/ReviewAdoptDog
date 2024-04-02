@@ -7,7 +7,7 @@
 public with sharing class AdoptionTriggerHelper {
 
     //check if the animal has been adopted by someone during insert.
-    public static void checkAnimalHasBeenAdopted(List<Adoption__c> newAdoptionList) {
+    public static void checkInsertAnimalHasBeenAdopted(List<Adoption__c> newAdoptionList) {
         System.debug('YNASC newAdoptionList: '+newAdoptionList);
         Set<Id> animalIds = new Set<Id>();
         for (Adoption__c newAdoption : newAdoptionList) {
@@ -43,8 +43,10 @@ public with sharing class AdoptionTriggerHelper {
     }
 
     //check if the animal has been adopted by someone during update.
-    public static void checkAnimalHasBeenAdopted(List<Adoption__c> newAdoptionList) {
-        System.debug('YNASC newAdoptionList: '+newAdoptionList);
+    public static void checkUpdateAnimalHasBeenAdopted(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap) {
+        System.debug('YNASC newAdoptionList: '+newOldAdoptionsMap);
+        List<Adoption__c> newAdoptionList = newOldAdoptions.get('new');
+        List<Adoption__c> oldAdoptionList = newOldAdoptions.get('old');
         Set<Id> animalIds = new Set<Id>();
         for (Adoption__c newAdoption : newAdoptionList) {
             Id animalId = newAdoption.Animal__c;
@@ -64,15 +66,19 @@ public with sharing class AdoptionTriggerHelper {
             WITH SYSTEM_MODE
         ];
 
+        //Test if the animal has been adopted
         if (!adoptedList.isEmpty()) {
             for (Adoption__c adoption : newAdoptionList) {
                 adoption.Animal__c.addError('This animal has been adopted! Sorry!');
             }
         }
 
+        //Test if the animal is In Process
         if (!adoptionInProcessList.isEmpty()) {
-            for (Adoption__c adoption : newAdoptionList) {
-                adoption.Animal__c.addError('This animal is in adoption process! Sorry!');
+            for (Integer i = 0 ; i < newAdoptionList.Size(); i++) {
+                if (newAdoptionList[i].Animal__c != oldAdoptionList[i].Animal__c) {
+                    newAdoptionList[i].Animal__c.addError('This animal is in adoption process. Sorry!');
+                }
             }
         }
 

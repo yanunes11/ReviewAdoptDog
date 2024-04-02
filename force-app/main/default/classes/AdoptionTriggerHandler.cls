@@ -27,30 +27,29 @@ public with sharing class AdoptionTriggerHandler {
     public void switchOperationType() {
         System.debug('YNASC operatioType: '+this.operationType);
         switch on operationType {
-            when  'AFTER_INSERT' {
-                afterInsert(newValues, newMap);
-            }
             when 'BEFORE_INSERT' {
                 beforeInsert(newValues);
             }
+            when 'BEFORE_UPDATE' {
+                beforeUpdate(newOldValues, newOldValuesMap);
+            }
             when else {
-                afterUpdate(newOldValues, newOldValuesMap);
+                System.debug('when else');
             }
         }
     }
 
     public void beforeInsert(List<Adoption__c> newRecords) {
         System.debug('YNASC beforeInsert');
-        AdoptionTriggerHelper.checkAnimalHasBeenAdopted(newRecords);
+        AdoptionTriggerHelper.checkInsertAnimalHasBeenAdopted(newRecords);
     }
     public void beforeUpdate(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap){
-        System.debug('YNASC beforeInsert');
+        System.debug('YNASC beforeUpdate');
+        AdoptionTriggerHelper.checkUpdateAnimalHasBeenAdopted(newOldAdoptions, newOldAdoptionsMap);
     }
-    public void beforeDelete(List<Adoption__c> oldRecords, Map<ID, Adoption__c> oldRecordMap){System.debug('YNASC beforeInsert');}
-    public void afterInsert(List<Adoption__c> newRecords, Map<ID, Adoption__c> newRecordMap){System.debug('YNASC beforeInsert');}
-    public void afterUpdate(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap){
-        System.debug('YNASC beforeInsert');
-    }
-    public void afterDelete(List<Adoption__c> oldRecords, Map<ID, Adoption__c> oldRecordMap){System.debug('YNASC beforeInsert');}
-    public void afterUndelete(List<Adoption__c> newRecords, Map<ID, Adoption__c> newRecordMap){System.debug('YNASC beforeInsert');}
+    public void beforeDelete(List<Adoption__c> oldRecords, Map<ID, Adoption__c> oldRecordMap){System.debug('YNASC beforeDelete');}
+    public void afterInsert(List<Adoption__c> newRecords, Map<ID, Adoption__c> newRecordMap){System.debug('YNASC afterInsert');}
+    public void afterUpdate(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap){System.debug('YNASC afterUpdate');}
+    public void afterDelete(List<Adoption__c> oldRecords, Map<ID, Adoption__c> oldRecordMap){System.debug('YNASC afterDelete');}
+    public void afterUndelete(List<Adoption__c> newRecords, Map<ID, Adoption__c> newRecordMap){System.debug('YNASC afterUndelete');}
 }
