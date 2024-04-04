@@ -68,8 +68,10 @@ public with sharing class AdoptionTriggerHelper {
 
         //Test if the animal has been adopted
         if (!adoptedList.isEmpty()) {
-            for (Adoption__c adoption : newAdoptionList) {
-                adoption.Animal__c.addError('This animal has been adopted! Sorry!');
+            for (Integer i = 0; i < newAdoptionList.Size(); i++) {
+                if (newAdoptionList[i].Animal__c != oldAdoptionList[i].Animal__c) {
+                    newAdoptionList[i].Animal__c.addError('This animal has been adopted! Sorry!');
+                }
             }
         }
 
