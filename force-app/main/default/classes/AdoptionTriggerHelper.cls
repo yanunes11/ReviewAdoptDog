@@ -6,7 +6,7 @@
 */
 public with sharing class AdoptionTriggerHelper {
 
-    //check if the animal has been adopted by someone during insert.
+    //check the animal status "Adopted" or "Adoption Process" by someone during insert.
     public static void checkInsertAnimalHasBeenAdopted(List<Adoption__c> newAdoptionList) {
         System.debug('YNASC newAdoptionList: '+newAdoptionList);
         Set<Id> animalIds = new Set<Id>();
@@ -42,7 +42,7 @@ public with sharing class AdoptionTriggerHelper {
 
     }
 
-    //check if the animal has been adopted by someone during update.
+    //check the animal status "Adopted" or "Adoption Process" by someone during update.
     public static void checkUpdateAnimalHasBeenAdopted(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap) {
         System.debug('YNASC newAdoptionList: '+newOldAdoptionsMap);
         List<Adoption__c> newAdoptionList = newOldAdoptions.get('new');
