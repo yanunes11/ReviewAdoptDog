@@ -1,8 +1,43 @@
+<!-- 
+    * @author : Yan Nascimento
+    * @Date : 2024/04/10
+    * @Description : create a base card for creating adoption
+    * @log : 2024/03/22 - created
+ -->
+
 <template>
-    <lightning-card  title="Hello">
-        <p class="slds-p-horizontal_small">YNASC Card Body (custom component)</p>
-        <p slot="footer">
-            <lightning-button label="Save" slot="actions"></lightning-button>
-        </p>
-    </lightning-card>
+    <div class="slds-align_absolute-center">
+        <article class="slds-card slds-size_1-of-2">
+            <div class="slds-card__header slds-grid">
+                <!-- CARD HEADER - START -->
+                <header class="slds-media slds-media_center slds-has-flexi-truncate">
+    
+                    <!-- ICON - START -->
+                    <lightning-icon 
+                        icon-name="action:submit_for_approval" 
+                        alternative-text="Approved" 
+                        size="xx-small" 
+                        class="slds-m-right_x-small">
+                    </lightning-icon>
+                    <!-- ICON - END -->
+                    <div class="slds-media__body">
+                        <h2 class="slds-card__header-title">
+                            <a href="#" class="slds-card__header-link slds-truncate" title="Adoption">
+                                <span>Adoption</span>
+                            </a>
+                        </h2>
+                    </div>
+                </header>
+                <!-- CARD HEADER - END -->
+            </div>
+            <div class="slds-card__body slds-card__body_inner">Insert the information</div>
+            <!-- FOOTER - START -->
+            <footer class="slds-card__footer">
+                <div class="slds-no-flex">
+                    <button class="slds-button slds-button_neutral">Save</button>
+                </div>
+            </footer>
+            <!-- FOOTER - END -->
+        </article>
+    </div>
 </template>
