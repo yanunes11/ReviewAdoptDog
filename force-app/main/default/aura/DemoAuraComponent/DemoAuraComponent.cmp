@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,lightning:actionOverride,force:hasRecordId,force:hasSObjectName">
+    <aura:attribute name="isModalHidden" type="Boolean" default="true" description="Flag to control modal window"  />
+    <lightning:card title="Modal Demo">
+        <p class="slds-p-horizontal_small">
+            This is a parent component from where we need to show the modal window
+        </p>
+        <lightning:button variant="brand" label="Show Modal" title="Show Modal" onclick="{! c.openModal }" />
+    </lightning:card>
+    <c:Util_ModalWindow isHidden="{!v.isModalHidden}" cancelLabel="cancel" onSaveClick="{! c.onConfirm }" onCancelClick="{! c.onCancel }">
+        This is the modal body. Other Aura/LWC components can be embedded here.
+    </c:Util_ModalWindow>
+</aura:component>

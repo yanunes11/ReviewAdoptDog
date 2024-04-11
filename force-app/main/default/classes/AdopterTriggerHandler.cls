@@ -4,7 +4,7 @@
     * @Description : handle the trigger for Adopter object.
     * @log : 2024/03/25 - created
 */
-public with sharing class AdopterTriggerHandler implements TriggerHandler {
+public with sharing class AdopterTriggerHandler implements TriggerHandlerInterface {
     private List<Adopter__c> newValues;
     private List<Adopter__c> oldValues;
     private Map<Id, Adopter__c> newMap;

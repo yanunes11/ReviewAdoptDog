@@ -1,3 +1,0 @@
-<aura:component controller="AdoptionController" implements="lightning:actionOverride,force:hasRecordId,force:hasSObjectName" access="global" >
-    <c:newAdoption></c:newAdoption>
-</aura:component>	
