@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-
+   	<types>
+        <members>Admin</members>
+        <name>Profile</name>
+    </types>
+	<!--
 	<types>
 		<members>AdopterTriggerHandler</members>
 		<members>AdopterTriggerHelper</members>
@@ -24,12 +28,10 @@
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
-	<!--
 	<types>
 		<members>CreateAdoptionRecordPage</members>
 		<name>AuraDefinitionBundle</name>
 	</types>
--->
 	<types>
 		<members>*</members>
 		<name>CustomMetadata</name>
@@ -77,5 +79,6 @@
 		<members>Medical_Cost__c-Medical Cost Layout</members>
 		<name>Layout</name>
 	</types>
+-->
 	<version>58.0</version>
 </Package>
