@@ -1,18 +1,14 @@
-# Salesforce DX Project: Next Steps
+# Adopt Dog Ltda (Project Under Construction)
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+# Do you want to know what is the Adopt Dog?
+Adopt Dog is a non-profit shelter dedicated to rescuing street dogs, providing them with care, and facilitating their adoption to loving homes.
 
-## How Do You Plan to Deploy Your Changes?
+Unfortunately, they are facing challenges in managing the influx of animals, coordinating staff, and connecting with potential adopters. Consequently, they have decided to seek assistance from a developer or group of developers to create a tailored Salesforce solution for their needs.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+# Data Model Structure
 
-## Configure Your Salesforce DX Project
-
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
-
-## Read All About It
-
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+1. Animal
+2. Adopter
+3. Adoption
+4. Mecial Care
+5. Medical Cost
