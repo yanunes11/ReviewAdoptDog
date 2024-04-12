@@ -2,6 +2,16 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 
 	<types>
+		<members>Adopt_Dog_Home	</members>
+		<members>Adoption_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
+		<members>AdoptDog</members>
+		<name>CustomApplication</name>
+	</types>
+	<!--
+	<types>
 		<members>Adopter__c</members>
 		<members>Adoption__c</members>
 		<members>Animal__c</members>
@@ -34,12 +44,6 @@
         <members>Admin</members>
         <name>Profile</name>
     </types>
-	<types>
-		<members>AdoptDog_UtilityBar</members>
-		<members>Adoption_Record_Page</members>
-		<name>FlexiPage</name>
-	</types>
-
 
 	<types>
 		<members>AdopterTriggerHandler</members>
@@ -68,11 +72,7 @@
 		<members>*</members>
 		<name>CustomMetadata</name>
 	</types>
-	<types>
-		<members>AdoptDog</members>
-		<name>CustomApplication</name>
-	</types>
-	<!--
+
 -->
 	<version>58.0</version>
 </Package>
