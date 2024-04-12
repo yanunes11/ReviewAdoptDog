@@ -5,7 +5,6 @@
 		<members>*</members>
 		<name>LightningComponentBundle</name>
 	</types>
-	<!--
 	<types>
 		<members>Adopt_Dog_Home	</members>
 		<members>Adoption_Record_Page</members>
@@ -74,6 +73,7 @@
 		<name>CustomMetadata</name>
 	</types>
 
+	<!--
 -->
 	<version>58.0</version>
 </Package>

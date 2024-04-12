@@ -1,0 +1,7 @@
+div.slds-box {
+    border-radius: var(--slds-c-badge-radius-border, 12px);
+}
+
+div.slds-card {
+    color: var(--slds-c-badge-text-color, #ef1616);
+}
