@@ -1,5 +1,5 @@
 import { LightningElement } from 'lwc';
 
-export default class AdoptDogHome extends LightningElement {
+export default class AdoptionCreationFlow extends LightningElement {
     areFooterVisible = false;
 }

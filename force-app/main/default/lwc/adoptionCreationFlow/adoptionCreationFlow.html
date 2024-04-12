@@ -4,18 +4,18 @@
     * @Description : home screen base for seeing Animal and Adopter side by side and create an Adoption based on that.
     * @log : 2024/04/12 - created
  -->
-<template>
+ <template>
     <article class="slds-card">
 
         <!-- HEADER -->
-        <c-adopt-dog-home-header></c-adopt-dog-home-header>
+        <c-adoption-creation-flow-header></c-adoption-creation-flow-header>
         
         <!-- BODY -->
-        <c-adopt-dog-home-body></c-adopt-dog-home-body>
+        <c-adoption-creation-flow-body></c-adoption-creation-flow-body>
         
         <!-- FOOTER -->
         <template lwc:if={areFooterVisible}>
-            <c-adopt-dog-home-footer></c-adopt-dog-home-footer>
+            <c-adoption-creation-flow-footer></c-adoption-creation-flow-footer>
         </template>
     </article>
 </template>
