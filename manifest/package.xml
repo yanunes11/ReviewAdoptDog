@@ -10,7 +10,6 @@
 		<members>AdoptDog</members>
 		<name>CustomApplication</name>
 	</types>
-	<!--
 	<types>
 		<members>Adopter__c</members>
 		<members>Adoption__c</members>
@@ -73,6 +72,7 @@
 		<name>CustomMetadata</name>
 	</types>
 
+	<!--
 -->
 	<version>58.0</version>
 </Package>
