@@ -3,8 +3,8 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>newAdoption</componentName>
-                <identifier>c_newAdoption</identifier>
+                <componentName>adoptDogHome</componentName>
+                <identifier>c_adoptDogHome</identifier>
             </componentInstance>
         </itemInstances>
         <name>main</name>
