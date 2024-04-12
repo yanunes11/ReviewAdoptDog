@@ -17,3 +17,8 @@ button.slds-button_success {
     border-color: none;
     width: fit-content;
 }
+
+li {
+    display: flex;
+    justify-content: left;
+}

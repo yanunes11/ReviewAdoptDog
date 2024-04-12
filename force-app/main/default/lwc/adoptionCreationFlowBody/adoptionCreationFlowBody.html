@@ -3,7 +3,17 @@
     <div class="slds-card__body slds-card__body_inner">
         <div class="demo-only demo-only--sizing slds-grid slds-wrap">
             <div class="slds-size_5-of-12">
-              <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Animal Card</div>
+              <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                <c-create-new-card 
+                    icon-name="action:submit_for_approval"
+                    icon-alternative-text = "Adoption Approval Icon"
+                    icon-title = "Animal"
+                    button-label = "Create Animal"
+                    object-api-name = "Animal__c"
+                    object-fields = {animalObjectFields}
+                    animal-id={animalId}>
+                </c-create-new-card>
+              </div>
             </div>
             <div class="slds-size_2-of-12">
                 <div class="slds-card slds-p-around_medium slds-align_absolute-center">

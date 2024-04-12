@@ -7,7 +7,7 @@ export default class CreateNewAdoptionCard extends LightningElement {
     @api buttonLabel = "";
     @api objectApiName = "";
     @api objectFields = [];
-
+    showFooter = false;
     handleClick(event) {
         console.log(JSON.stringify(event));
     }

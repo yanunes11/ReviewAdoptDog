@@ -1,5 +1,6 @@
 div.slds-box {
     border-radius: var(--slds-c-badge-radius-border, 12px);
+    height: 250px;
 }
 
 div.slds-card {

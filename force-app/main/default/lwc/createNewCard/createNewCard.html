@@ -6,59 +6,42 @@
  -->
 
  <template>
-    <div class="slds-align_absolute-center">
-        <article class="slds-card slds-size_1-of-2">
-            <div class="slds-card__header slds-grid">
-                <!-- CARD HEADER - START -->
-                <header class="slds-media slds-media_center slds-has-flexi-truncate">
-    
-                    <!-- ICON - START -->
-                    <lightning-icon 
-                        icon-name={iconName} 
-                        alternative-text={iconAlternativeText} 
-                        size="xx-small" 
-                        class="slds-m-right_x-small">
-                    </lightning-icon>
-                    <!-- ICON - END -->
-                    <div class="slds-media__body">
-                        <h2 class="slds-card__header-title">
-                            <a href="#" class="slds-card__header-link slds-truncate" title={iconTitle}>
-                                <span>{iconTitle}</span>
-                            </a>
-                        </h2>
-                    </div>
-                </header>
-                <!-- CARD HEADER - END -->
-            </div>
+    <article class="slds-card slds-size_1-of-2">
+        <div class="slds-card__header slds-grid">
+            <!-- CARD HEADER - START -->
+            <header class="slds-media slds-media_center slds-has-flexi-truncate">
 
-            <!-- CREATE INPUT FIELD LIST - START -->
-            <div class="slds-card__body slds-card__body_inner">
+                <!-- ICON - START -->
+                <lightning-icon 
+                    icon-name={iconName} 
+                    alternative-text={iconAlternativeText} 
+                    size="xx-small" 
+                    class="slds-m-right_x-small">
+                </lightning-icon>
+                <!-- ICON - END -->
+                <div class="slds-media__body">
+                    <h2 class="slds-card__header-title">
+                        <a href="#" class="slds-card__header-link slds-truncate" title={iconTitle}>
+                            <span>{iconTitle}</span>
+                        </a>
+                    </h2>
+                </div>
+            </header>
+            <!-- CARD HEADER - END -->
+        </div>
 
-                <lightning-record-edit-form object-api-name={objectApiName}>
-                    <ul>
-                        <template for:each={objectFields} for:item="objectField">
-                            <li key={objectFields.Id}>
-                                <lightning-input-field field-name={objectField.field}> </lightning-input-field>
-                            </li>
-                        </template>
-                    </ul>
+        <!-- SHOW OUTPUT FIELD LIST - START -->
+        <div class="slds-card__body slds-card__body_inner">
+            <ul>
+                <template for:each={objectFields} for:item="objectField">
+                    <li key={objectFields.Id}>
+                        {objectField.fieldName}: {objectField.value}
+                    </li>
+                </template>
+            </ul>
 
-                    
-                    <!-- FOOTER - START -->
-                    <footer class="slds-card__footer">
-                        <button 
-                            class="slds-button slds-button_success slds-m-horizontal_small"
-                            onclick={handleClick}
-                                >{buttonLabel}
-                        </button>
-                        <button class="slds-button slds-button_neutral slds-m-horizontal_small">Cancel</button>
-                    </footer>
-                    <!-- FOOTER - END -->
+        </div>
+        <!-- SHOW OUTPUT FIELD LIST - END -->
 
-                </lightning-record-edit-form>
-            </div>
-            <!-- CREATE INPUT FIELD LIST - END -->
-
-        </article>
-    </div>
+    </article>
 </template>
