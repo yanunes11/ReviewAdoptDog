@@ -40,7 +40,7 @@
                     <ul>
                         <template for:each={objectFields} for:item="objectField">
                             <li key={objectFields.fieldName}>
-                                {objectField.fieldName}: {objectField.value}
+                                <b>{objectField.fieldName}:&nbsp;</b>{objectField.value}
                             </li>
                         </template>
                     </ul>

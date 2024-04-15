@@ -4,14 +4,14 @@
         <div class="demo-only demo-only--sizing slds-grid slds-wrap">
             <div class="slds-size_5-of-12">
               <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                <!-- CREATE ANIMAL CARD -->
                 <c-create-new-card 
                     icon-name="action:submit_for_approval"
                     icon-alternative-text = "Adoption Approval Icon"
                     icon-title = "Animal"
                     button-label = "Create Animal"
                     object-api-name = "Animal__c"
-                    object-fields = {animalObjectFields}
-                    animal-id={animalId}>
+                    object-fields = {animalObjectFields}>
                 </c-create-new-card>
               </div>
             </div>
@@ -21,7 +21,17 @@
                 </div>
             </div>
             <div class="slds-size_5-of-12">
-              <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">Adopter Card</div>
+              <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                <!-- CREATE ADOPTER CARD -->
+                <c-create-new-card 
+                  icon-name="action:user"
+                  icon-alternative-text = "Adopter Icon"
+                  icon-title = "Adopter"
+                  button-label = "Create Adopter"
+                  object-api-name = "Adopter__c"
+                  object-fields = {adopterObjectFields}>
+                </c-create-new-card>
+              </div>
             </div>
         </div>
     </div>
