@@ -1,13 +1,33 @@
 import { LightningElement, api } from 'lwc';
+import animalInformation from '@salesforce/apex/AnimalQueries.getAnimalInformationById';
 
 export default class AdoptionCreationFlowBody extends LightningElement {
+    animalId = 'a00aj000006C4GMAA0';
+    @api animal;
+    animalObjectFields = [];
+    error;
+    connectedCallback() {
+        this.getAnimalInformation(this.animalId);
+    }
 
-    // YNASC - DELETE BECAUSE IT WILL BE BROGHT FROM DB - START
-    @api animalObjectFields = [
-        {id: 'a00aj000006C4GMAA0', fieldName: "Name", value: 'Linim'},
-        {id: 'a00aj000006C4GMAA0', fieldName: "Adopter Name", value: 'Amannda'},
-        {id: 'a00aj000006C4GMAA0', fieldName: "Age(Years)", value: 10},
-        {id: 'a00aj000006C4GMAA0', fieldName: "Weight(Kg)", value: 3.5}
-    ];
-    // YNASC - DELETE BECAUSE IT WILL BE BROGHT FROM DB - END
+    getAnimalInformation(animalId) {
+        let animal = [];
+        animalInformation({animalId: animalId})
+        .then((result) => {
+            for (let key in result) {
+                if (key !== 'Id') {
+                    let cleanKey = key.replace("__c", "").replace("_", " ");
+                    let animaObject = {'fieldName': cleanKey, 'value': result[key]};
+                    animal.push(animaObject);
+                }
+            }
+            this.animalObjectFields = animal;
+            console.log('YNASC here: '+JSON.stringify(this.animalObjectFields));
+        })
+        .catch((error) => {
+            console.log('YNASC error: '+JSON.stringify(error));
+        })
+        console.log('YNASC final: '+JSON.stringify(this.animalObjectFields));
+    }
+
 }
