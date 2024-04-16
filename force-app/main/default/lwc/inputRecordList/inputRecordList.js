@@ -29,9 +29,6 @@ export default class InputRecordList extends LightningElement {
      * Getter and setters
      */
     get selectedFieldNameReference() {
-        console.log('YNASC selectedFieldNameReference');
-        console.log('YNASC this.selectedFieldAPIName: '+this.selectedFieldAPIName);
-        console.log('YNASC this.objectsMap[this.selectedFieldAPIName]?.name: '+this.objectsMap[this.selectedFieldAPIName]?.name);
         return this.objectsMap[this.selectedFieldAPIName]?.name;
     }
 

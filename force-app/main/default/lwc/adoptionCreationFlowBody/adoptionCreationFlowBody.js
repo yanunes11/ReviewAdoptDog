@@ -2,39 +2,54 @@ import { LightningElement, api, track } from 'lwc';
 import animalInformation from '@salesforce/apex/AnimalQueries.getAnimalInformationById';
 import adopterInformation from '@salesforce/apex/AdopterQueries.getAdopterInformationById';
 import animalListInformation from '@salesforce/apex/AnimalQueries.getAvailableAnimalList';
+import adopterListInformation from '@salesforce/apex/AdopterQueries.getAvailableAdopterList';
 
 export default class AdoptionCreationFlowBody extends LightningElement {
     @api animalId = '';
-    adopterId = 'a03aj000001LRskAAG';
+    @api adopterId = '';
     @api animal;
     animalObjectFields = [];
     adopterObjectFields = [];
     error;
-    @track objectsMap = {};
-    @track objectsList = [];
+    @track objectsAnimalMap = {};
+    @track objectsAnimalList = [];
+    @track objectsAdopterMap = {};
+    @track objectsAdopterList = [];
     connectedCallback() {
         this.getAnimalList();
-        //YNASC Delete these functions. It should be invoked by the choosing the animal and adopter in the list
-        // this.getAnimalInformation(this.animalId);
-        // this.getAdopterInformation(this.adopterId);
+        this.getAdopterList();
     }
 
     async getAnimalList() {
         try {
             let objectsMapAux = [];
             objectsMapAux = await animalListInformation();
-            this.objectsMap = JSON.parse(JSON.stringify(objectsMapAux));
-            this.objectsList = Object.values(this.objectsMap);
+            this.objectsAnimalMap = JSON.parse(JSON.stringify(objectsMapAux));
+            this.objectsAnimalList = Object.values(this.objectsAnimalMap);
         } catch (error) {
             this.error = error;
         }
     }
 
-    handleRecordSelected(event) {
-        // console.log('YNASC event.detail: '+event.detail);
+    async getAdopterList() {
+        try {
+            let objectsMapAux = [];
+            objectsMapAux = await adopterListInformation();
+            this.objectsAdopterMap = JSON.parse(JSON.stringify(objectsMapAux));
+            this.objectsAdopterList = Object.values(this.objectsAdopterMap);
+        } catch (error) {
+            this.error = error;
+        }
+    }
+
+    handleAnimalSelected(event) {
         this.animalId = event.detail;
-        // console.log('YNASC this.animalId: '+this.animalId);
         this.getAnimalInformation(this.animalId);
+    }
+
+    handleAdopterSelected(event) {
+        this.adopterId = event.detail;
+        this.getAdopterInformation(this.adopterId);
     }
 
     getAnimalInformation(animalId) {
@@ -55,7 +70,8 @@ export default class AdoptionCreationFlowBody extends LightningElement {
         })
     }
 
-    getAdopterInformation(adopterId) {        let adopter = [];
+    getAdopterInformation(adopterId) {        
+        let adopter = [];
         adopterInformation({adopterId: adopterId})
         .then((result) => {
 

@@ -2,7 +2,6 @@ public with sharing class AdopterQueries {
 
     @AuraEnabled
     public static Adopter__c getAdopterInformationById(String adopterId){
-        System.debug('YNASC Insed');
         Adopter__c adopter = [
             SELECT Id, Name
             FROM Adopter__c
@@ -10,7 +9,32 @@ public with sharing class AdopterQueries {
             WITH SYSTEM_MODE
             LIMIT 1
         ];
-        System.debug('YNASC adopter: '+adopter);
         return adopter;
+    }
+
+    @AuraEnabled (cacheable = true)
+    public static Map<String, FieldProperty> getAvailableAdopterList(){
+        Map<String, FieldProperty> adopterPropertyMap = new Map<String, FieldProperty>();
+        try {
+            List<Adopter__c> adopterList = [
+                SELECT Id, Name
+                FROM Adopter__c
+                WITH SYSTEM_MODE
+            ];
+            for (Adopter__c adopter : adopterList) {
+                FieldProperty fieldProperty = new FieldProperty();
+                fieldProperty.id = adopter.Id;
+                fieldProperty.name = adopter.Name;
+                adopterPropertyMap.put(adopter.Name, fieldProperty);
+            }
+            return adopterPropertyMap;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    public class FieldProperty {
+        @AuraEnabled public string id {get; set;}
+        @AuraEnabled public string name {get; set;}
     }
 }

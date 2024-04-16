@@ -25,7 +25,6 @@ public with sharing class AdopterTriggerHandler implements TriggerHandlerInterfa
     }
 
     public void switchOperationType() {
-        System.debug('YNASC operatioType: '+this.operationType);
         switch on operationType {
             when  'AFTER_INSERT' {
                 afterInsert(newValues, newMap);
