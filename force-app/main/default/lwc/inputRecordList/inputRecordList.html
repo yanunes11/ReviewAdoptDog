@@ -12,9 +12,9 @@
                 label={inputLabel}
                 type="search"
                 value={selectedFieldNameReference}
-                onclick={handleClick}
+                onclick={handleInputClick}
                 onchange={handleInputChange} 
-                onblur={handleOnBlur}>
+                onblur={handleInputOnBlur}>
             </lightning-input>
 
             <!-- Combobox copied from https://www.lightningdesignsystem.com/components/combobox/ -->
@@ -24,7 +24,7 @@
                         <template for:each={autoCompleteOptions} for:item="option">
                             <li key={option.id} role="presentation" class="slds-listbox__item"
                                 onclick={handleOptionClick} data-value={option.name}
-                                data-name={option.name}>
+                                data-name={option.name} data-id={option.id}>
                                 <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small" role="option">
                                     <span class="slds-media__figure slds-listbox__option-icon"></span>
                                     <span class="slds-media__body">

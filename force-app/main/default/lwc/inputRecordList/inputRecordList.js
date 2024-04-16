@@ -1,34 +1,22 @@
 import { LightningElement, api, track } from 'lwc';
-import animalListInformation from '@salesforce/apex/AnimalQueries.getAvailableAnimalList';
 
 export default class InputRecordList extends LightningElement {
     isLoading = true; 
-    @api inputLabel = 'inputLabel variable';
+    @api inputLabel = '';
     error;
 
     @track autoCompleteOptions = []; // filtered list of options based on search string
-    @track objectsList = []; // complete list of objects returned by the apex method
-    @track objectsMap = {}; // useful to get a map
+    @api objectsList = []; // complete list of objects returned by the apex method
+    @api objectsMap = {}; // useful to get a map
 
     @api selectedFieldAPIName = '';
+    @api selectedRecordId = '';
     @api isObjectSelectionRO = false;
     @api isRequired = false;
     inputValue = '';
 
     connectedCallback() {
-        this.getAnimalList();
-    }
-
-    async getAnimalList() {
-        try {
-            this.isLoading = false;
-            let objectsMapAux = [];
-            objectsMapAux = await animalListInformation();
-            this.objectsMap = JSON.parse(JSON.stringify(objectsMapAux));
-            this.objectsList = Object.values(this.objectsMap);
-        } catch (error) {
-            this.error = error;
-        }
+        this.isLoading = false;
     }
 
     @api validate() {
@@ -41,6 +29,9 @@ export default class InputRecordList extends LightningElement {
      * Getter and setters
      */
     get selectedFieldNameReference() {
+        console.log('YNASC selectedFieldNameReference');
+        console.log('YNASC this.selectedFieldAPIName: '+this.selectedFieldAPIName);
+        console.log('YNASC this.objectsMap[this.selectedFieldAPIName]?.name: '+this.objectsMap[this.selectedFieldAPIName]?.name);
         return this.objectsMap[this.selectedFieldAPIName]?.name;
     }
 
@@ -48,7 +39,8 @@ export default class InputRecordList extends LightningElement {
      * Handlers
      */
 
-    handleClick(event) {
+    // show the the complete record list when click on the input box
+    handleInputClick(event) {
         this.autoCompleteOptions = this.objectsList.filter(item => item.name.toLowerCase().includes(this.inputValue.toLowerCase()));
         this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.add('slds-is-open');
         this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.focus();
@@ -58,18 +50,18 @@ export default class InputRecordList extends LightningElement {
         this.selectedFieldAPIName = ''; // resets the selected object whenever the search box is changed
         const inputVal = event.target.value; // gets search input value
         this.inputValue = inputVal;
-        // filters in real time the list received from the wired Apex method
+        // filters in real time the list received from the record list
         this.autoCompleteOptions = this.objectsList.filter(item => item.name.toLowerCase().includes(inputVal.toLowerCase()));
-        // makes visible the combobox, expanding it.
+        // make visible the combobox, expanding it.
         if (this.autoCompleteOptions.length && inputVal) {
             this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.add('slds-is-open');
             this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.focus();
         }
     }
 
-    handleOnBlur(event) {
-        // Trickiest detail of this LWC.
-        // the setTimeout is a workaround required to ensure the user click selects the record.
+    // Trickiest detail of this LWC.
+    // the setTimeout is a workaround required to ensure the user click selects the record.
+    handleInputOnBlur(event) {
         setTimeout(() => {
             if (!this.selectedFieldAPIName) {
                 this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.remove('slds-is-open');
@@ -77,12 +69,13 @@ export default class InputRecordList extends LightningElement {
         }, 300);
     }
 
+    // Stores the selected record and hides the combobox
     handleOptionClick(event) {
-        // Stores the selected objected and hides the combobox
-        this.selectedFieldAPIName = event.currentTarget?.dataset?.name;
+        this.selectedFieldAPIName = event.currentTarget?.dataset?.name;//get the name of the chosen record
+        this.selectedRecordId = event.currentTarget?.dataset?.id;//get the Id of the chosen record
         this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.remove('slds-is-open');
         // throw custom event to be caught by parent LWC
-        const selectedEvent = new CustomEvent('objectselected', { detail: this.selectedFieldAPIName });
+        const selectedEvent = new CustomEvent('recordselected', { detail: this.selectedRecordId });
         this.dispatchEvent(selectedEvent);
     }
 }

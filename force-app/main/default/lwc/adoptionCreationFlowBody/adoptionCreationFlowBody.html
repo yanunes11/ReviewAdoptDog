@@ -41,8 +41,10 @@
         <div class="slds-size_5-of-12">
           <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
             <c-input-record-list
-              label="Choose an Animal"
-              
+              input-label="Choose an Animal"
+              objects-map={objectsMap}
+              objects-list={objectsList}
+              onrecordselected={handleRecordSelected}
             ></c-input-record-list>
           </div>
         </div>

@@ -1,19 +1,40 @@
-import { LightningElement, api } from 'lwc';
+import { LightningElement, api, track } from 'lwc';
 import animalInformation from '@salesforce/apex/AnimalQueries.getAnimalInformationById';
 import adopterInformation from '@salesforce/apex/AdopterQueries.getAdopterInformationById';
+import animalListInformation from '@salesforce/apex/AnimalQueries.getAvailableAnimalList';
 
 export default class AdoptionCreationFlowBody extends LightningElement {
-    animalId = 'a00aj000006C4GMAA0';
+    @api animalId = '';
     adopterId = 'a03aj000001LRskAAG';
     @api animal;
     animalObjectFields = [];
     adopterObjectFields = [];
     error;
+    @track objectsMap = {};
+    @track objectsList = [];
     connectedCallback() {
-
+        this.getAnimalList();
         //YNASC Delete these functions. It should be invoked by the choosing the animal and adopter in the list
+        // this.getAnimalInformation(this.animalId);
+        // this.getAdopterInformation(this.adopterId);
+    }
+
+    async getAnimalList() {
+        try {
+            let objectsMapAux = [];
+            objectsMapAux = await animalListInformation();
+            this.objectsMap = JSON.parse(JSON.stringify(objectsMapAux));
+            this.objectsList = Object.values(this.objectsMap);
+        } catch (error) {
+            this.error = error;
+        }
+    }
+
+    handleRecordSelected(event) {
+        // console.log('YNASC event.detail: '+event.detail);
+        this.animalId = event.detail;
+        // console.log('YNASC this.animalId: '+this.animalId);
         this.getAnimalInformation(this.animalId);
-        this.getAdopterInformation(this.adopterId);
     }
 
     getAnimalInformation(animalId) {
