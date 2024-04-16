@@ -11,4 +11,30 @@ public with sharing class AnimalQueries {
         ];
         return animal;
     }
+
+    @AuraEnabled (cacheable = true)
+    public static Map<String, FieldProperty> getAvailableAnimalList(){
+        Map<String, FieldProperty> animalPropertyMap = new Map<String, FieldProperty>();
+        try {
+            List<Animal__c> animalList = [
+                SELECT Id, Name, Adopter_Name__c
+                FROM Animal__c
+                WITH SYSTEM_MODE
+            ];
+            for (Animal__c animal : animalList) {
+                FieldProperty fieldProperty = new FieldProperty();
+                fieldProperty.id = animal.Id;
+                fieldProperty.name = animal.Name;
+                animalPropertyMap.put(animal.Name, fieldProperty);
+            }
+            return animalPropertyMap;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
+
+    public class FieldProperty {
+        @AuraEnabled public string id {get; set;}
+        @AuraEnabled public string name {get; set;}
+    }
 }

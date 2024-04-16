@@ -1,0 +1,8 @@
+span {
+    display: flex;
+    justify-content: start;
+}
+
+.customInput {
+    --slds-c-input-color-border : var(--slds-g-color-neutral-base-80);
+}
