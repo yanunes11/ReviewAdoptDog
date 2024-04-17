@@ -3,6 +3,8 @@ import animalInformation from '@salesforce/apex/AnimalQueries.getAnimalInformati
 import adopterInformation from '@salesforce/apex/AdopterQueries.getAdopterInformationById';
 import animalListInformation from '@salesforce/apex/AnimalQueries.getAvailableAnimalList';
 import adopterListInformation from '@salesforce/apex/AdopterQueries.getAvailableAdopterList';
+import IMAGE_ADOPTER from "@salesforce/resourceUrl/adopterDefaultImage";
+import IMAGE_DOG from "@salesforce/resourceUrl/dogDefaultImage";
 
 export default class AdoptionCreationFlowBody extends LightningElement {
     @api animalId = '';
@@ -16,7 +18,10 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     @track objectsAdopterMap = {};
     @track objectsAdopterList = [];
     @track showCreateAdoptionButton = false;
+    dogImage = IMAGE_DOG;
+    adopterImage = IMAGE_ADOPTER;
     connectedCallback() {
+        
         this.getAnimalList();
         this.getAdopterList();
     }
