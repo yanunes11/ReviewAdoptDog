@@ -2,9 +2,9 @@
   <div class="slds-card__body slds-card__body_inner">
     <!-- CARDS -->
     <div class="demo-only demo-only--sizing slds-grid slds-wrap">
+      <!-- CREATE ANIMAL CARD -->
       <div class="slds-size_5-of-12">
         <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
-          <!-- CREATE ANIMAL CARD -->
           <c-create-new-card 
               icon-name="action:submit_for_approval"
               icon-alternative-text = "Adoption Approval Icon"
@@ -15,14 +15,15 @@
           </c-create-new-card>
         </div>
       </div>
-      <div class="slds-size_2-of-12">
+      <!-- CREATE ADOPTION BUTTON -->
+      <div class="custom-button slds-size_2-of-12">
           <div class="slds-card slds-p-around_medium slds-align_absolute-center">
-              Buttons
+            <lightning-button variant="success" label="Create Adoption" title="Successful action" onclick={handleClick} class="create-adoption slds-form-element__legend slds-form-element__label slds-m-left_x-small"></lightning-button>
           </div>
       </div>
+      <!-- CREATE ADOPTER CARD -->
       <div class="slds-size_5-of-12">
         <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
-          <!-- CREATE ADOPTER CARD -->
           <c-create-new-card 
             icon-name="action:user"
             icon-alternative-text = "Adopter Icon"

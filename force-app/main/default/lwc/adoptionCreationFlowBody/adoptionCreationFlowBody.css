@@ -3,8 +3,19 @@ div.slds-box {
     height: 250px;
 }
 
-div.slds-card {
-    color: var(--slds-c-badge-text-color, #ef1616);
+div.custom-button {
+    /* color: var(--slds-c-badge-text-color, #ef1616); YNASC*/
+    display: flex;
+    height: 250px;
+}
+
+.create-adoption {
+    font-size: 1rem !important;
+    --slds-c-button-radius-border: 30px;
+    --slds-c-button-success-text-color: white;
+    --slds-c-button-sizing-border: 10px;
+    --slds-c-button-success-color-border: #3ca454;
+    --slds-c-button-success-color-background: #3ca454;
 }
 
 div.demo-only {
