@@ -18,6 +18,14 @@ div.custom-button {
     --slds-c-button-success-color-background: #3ca454;
 }
 
+.custom-badge {
+    color: #939393;
+    border-radius: 12px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
 div.demo-only {
     display: flex;
     justify-content: space-between;

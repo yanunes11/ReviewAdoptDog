@@ -18,7 +18,19 @@
       <!-- CREATE ADOPTION BUTTON -->
       <div class="custom-button slds-size_2-of-12">
           <div class="slds-card slds-p-around_medium slds-align_absolute-center">
-            <lightning-button variant="success" label="Create Adoption" title="Successful action" onclick={handleClick} class="create-adoption slds-form-element__legend slds-form-element__label slds-m-left_x-small"></lightning-button>
+            <template lwc:if={showCreateAdoptionButton}>
+              <lightning-button variant="success" label="Create Adoption" title="Successful action" onclick={handleClick} class="create-adoption slds-form-element__legend slds-form-element__label slds-m-left_x-small"></lightning-button>
+            </template>
+            <template lwc:else>
+
+              <div class="custom-badge slds-scoped-notification slds-media slds-media_center slds-scoped-notification_light" role="status">
+                <div class="slds-media__body">
+                  <p>Select animal and adopter in the lists below.
+                  </p>
+                </div>
+              </div>
+
+            </template>
           </div>
       </div>
       <!-- CREATE ADOPTER CARD -->
