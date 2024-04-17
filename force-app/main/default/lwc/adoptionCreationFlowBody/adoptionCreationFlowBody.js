@@ -15,6 +15,7 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     @track objectsAnimalList = [];
     @track objectsAdopterMap = {};
     @track objectsAdopterList = [];
+    @track showCreateAdoptionButton = false;
     connectedCallback() {
         this.getAnimalList();
         this.getAdopterList();
@@ -45,11 +46,21 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     handleAnimalSelected(event) {
         this.animalId = event.detail;
         this.getAnimalInformation(this.animalId);
+        if (this.animalId !== '' && this.adopterId !== '') {
+            this.showCreateAdoptionButton = true;
+        }
     }
 
     handleAdopterSelected(event) {
         this.adopterId = event.detail;
         this.getAdopterInformation(this.adopterId);
+        if (this.animalId !== '' && this.adopterId !== '') {
+            this.showCreateAdoptionButton = true;
+        }
+    }
+
+    handleRecordUnselection(event) {
+        this.showCreateAdoptionButton = event.detail === true? false : true;
     }
 
     getAnimalInformation(animalId) {

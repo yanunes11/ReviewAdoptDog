@@ -44,6 +44,12 @@ export default class InputRecordList extends LightningElement {
     }
 
     handleInputChange(event) {
+
+        //record input clear, send event to parent.
+        if (JSON.stringify(event.currentTarget.dataset) === '{}') {
+            const selectedEvent = new CustomEvent('recordunselected', { detail: true });
+            this.dispatchEvent(selectedEvent);
+        }
         this.selectedFieldAPIName = ''; // resets the selected object whenever the search box is changed
         const inputVal = event.target.value; // gets search input value
         this.inputValue = inputVal;
@@ -59,6 +65,8 @@ export default class InputRecordList extends LightningElement {
     // Trickiest detail of this LWC.
     // the setTimeout is a workaround required to ensure the user click selects the record.
     handleInputOnBlur(event) {
+        // console.log('YNASC this.template.querySelector(): '+
+        // JSON.stringify(this.template.querySelector('[data-name="clear"]')));
         setTimeout(() => {
             if (!this.selectedFieldAPIName) {
                 this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.remove('slds-is-open');

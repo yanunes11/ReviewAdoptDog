@@ -58,11 +58,10 @@
           objects-map={objectsAnimalMap}
           objects-list={objectsAnimalList}
           onrecordselected={handleAnimalSelected}
+          onrecordunselected={handleRecordUnselection}
           ></c-input-record-list>
         </div>
         <!-- ANIMAL LIST - END -->
-        
-        <!-- YNASC SPACE BETWEEN - APPLY DISPLAY FLEX AND JUSTIFY  -->
         
         <!-- ADOPTER LIST - START -->
         <div class="slds-size_5-of-12">
@@ -71,6 +70,7 @@
           objects-map={objectsAdopterMap}
           objects-list={objectsAdopterList}
           onrecordselected={handleAdopterSelected}
+          onrecordunselected={handleRecordUnselection}
           ></c-input-record-list>
         </div>
         <!-- ADOPTER LIST - END -->
