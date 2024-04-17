@@ -5,4 +5,10 @@ span {
 
 .customInput {
     --slds-c-input-color-border : var(--slds-g-color-neutral-base-80);
+    --slds-c-input-radius-border: 12px;
+}
+
+div.slds-dropdown {
+    border-radius: 12px;
+    border-color: var(--slds-g-color-neutral-base-90);
 }
