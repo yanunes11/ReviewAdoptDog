@@ -10,8 +10,8 @@ div.custom-button {
 }
 
 .create-adoption {
-    font-size: 1rem !important;
-    --slds-c-button-radius-border: 30px;
+    font-size: 0.80rem !important;
+    --slds-c-button-radius-border: 12px;
     --slds-c-button-success-text-color: white;
     --slds-c-button-sizing-border: 10px;
     --slds-c-button-success-color-border: #3ca454;
@@ -20,6 +20,7 @@ div.custom-button {
 
 .custom-badge {
     color: #939393;
+    background-color: #E5E5E5;
     border-radius: 12px;
     text-align: center;
     display: flex;
