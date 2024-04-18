@@ -164,6 +164,7 @@
     </nameField>
     <pluralLabel>Adoptions</pluralLabel>
     <searchLayouts>
+        <searchResultsAdditionalFields>Animal__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Adopter__c</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>Adoption_Stage__c</searchResultsAdditionalFields>
     </searchLayouts>

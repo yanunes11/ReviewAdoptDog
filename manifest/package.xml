@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
-
+	<types>
+		<members>AdopterQueries</members>
+		<members>AdopterTriggerHandler</members>
+		<members>AdopterTriggerHelper</members>
+		<members>AdoptionController</members>
+		<members>AdoptionTriggerHandler</members>
+		<members>AdoptionTriggerHelper</members>
+		<members>AdoptionTriggerHelperTest</members>
+		<members>AnimalQueries</members>
+		<members>GetAdopterInfo</members>
+		<members>GetAdopterInfoTest</members>
+		<members>TestDataFactory</members>
+		<members>TriggerHandlerInterface</members>
+		<name>ApexClass</name>
+	</types>
 	<types>
 		<members>*</members>
-		<name>LightningComponentBundle</name>
+		<name>ApexTrigger</name>
 	</types>
-	<!--
 	<types>
-		<members>Adopt_Dog_Home	</members>
-		<members>Adoption_Record_Page</members>
-		<name>FlexiPage</name>
+		<members>Screenshot_20240312_at_155520</members>
+		<name>ContentAsset</name>
 	</types>
 	<types>
 		<members>AdoptDog</members>
 		<name>CustomApplication</name>
+	</types>
+	<types>
+		<members>*</members>
+		<name>CustomMetadata</name>
 	</types>
 	<types>
 		<members>Adopter__c</members>
@@ -33,6 +49,12 @@
 		<name>CustomTab</name>
 	</types>
 	<types>
+		<members>AdoptDog_UtilityBar</members>
+		<members>Adopt_Dog_Home</members>
+		<members>Adoption_Record_Page</members>
+		<name>FlexiPage</name>
+	</types>
+	<types>
 		<members>Adopter__c-Adopter Layout</members>
 		<members>Adoption__c-Adoption Layout</members>
 		<members>Animal__c-Animal Layout</members>
@@ -41,39 +63,18 @@
 		<name>Layout</name>
 	</types>
 	<types>
-		<members>Screenshot_20240312_at_155520</members>
-		<name>ContentAsset</name>
-	</types>
-   	<types>
-        <members>Admin</members>
-        <name>Profile</name>
-    </types>
-
-	<types>
-		<members>AdopterTriggerHandler</members>
-		<members>AdopterTriggerHelper</members>
-		<members>AdoptionTriggerHandler</members>
-		<members>AdoptionTriggerHelper</members>
-		<members>GetAdopterInfo</members>
-		<members>GetAdopterInfoTest</members>
-		<members>TriggerHandlerInterface</members>
-		<members>TestDataFactory</members>
-		<members>AdoptionTriggerHelperTest</members>
-		<members>AdoptionController</members>
-		<name>ApexClass</name>
-	</types>
-
-	<types>
-		<members>AdopterTrigger</members>
-		<members>AdoptionTrigger</members>
-		<name>ApexTrigger</name>
-	</types>
-
-	<types>
 		<members>*</members>
-		<name>CustomMetadata</name>
+		<name>LightningComponentBundle</name>
 	</types>
-
--->
+	<types>
+		<members>Admin</members>
+		<name>Profile</name>
+	</types>
+	<types>
+		<members>AdoptDogLogo</members>
+		<members>adopterDefaultImage</members>
+		<members>dogDefaultImage</members>
+		<name>StaticResource</name>
+	</types>
 	<version>58.0</version>
 </Package>
