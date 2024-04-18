@@ -65,8 +65,6 @@ export default class InputRecordList extends LightningElement {
     // Trickiest detail of this LWC.
     // the setTimeout is a workaround required to ensure the user click selects the record.
     handleInputOnBlur(event) {
-        // console.log('YNASC this.template.querySelector(): '+
-        // JSON.stringify(this.template.querySelector('[data-name="clear"]')));
         setTimeout(() => {
             if (!this.selectedFieldAPIName) {
                 this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.remove('slds-is-open');

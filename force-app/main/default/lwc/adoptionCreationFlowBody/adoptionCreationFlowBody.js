@@ -20,7 +20,7 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     @track showCreateAdoptionButton = false;
     dogImage = IMAGE_DOG;
     adopterImage = IMAGE_ADOPTER;
-    connectedCallback() {
+    connectedCallback() { 
         
         this.getAnimalList();
         this.getAdopterList();
@@ -68,10 +68,11 @@ export default class AdoptionCreationFlowBody extends LightningElement {
         this.showCreateAdoptionButton = event.detail === true? false : true;
     }
 
-    getAnimalInformation(animalId) {
-        let animal = [];
-        animalInformation({animalId: animalId})
-        .then((result) => {
+    // Retrieve animal information to show in the Animal card
+    async getAnimalInformation(animalId) {
+        try {
+            let animal = [];
+            let result = await animalInformation({animalId: animalId});
             for (let key in result) {
                 if (key !== 'Id') {
                     let cleanKey = key.replace("__c", "").replace("_", " ");
@@ -80,29 +81,29 @@ export default class AdoptionCreationFlowBody extends LightningElement {
                 }
             }
             this.animalObjectFields = animal;
-        })
-        .catch((error) => {
-            console.log('YNASC error: '+JSON.stringify(error));
-        })
+        } catch (error) {
+            this.error = error;
+            console.log('YNASC - error: '+JSON.stringify(this.error));
+        }
     }
 
-    getAdopterInformation(adopterId) {        
-        let adopter = [];
-        adopterInformation({adopterId: adopterId})
-        .then((result) => {
-
-            for (let key in result) {
-                if (key !== 'Id') {
-                    let cleanKey = key.replace("__c", "").replace("_", " ");
-                    let adopterObject = {'fieldName': cleanKey, 'value': result[key]};
-                    adopter.push(adopterObject);
+        // Retrieve adopter information to show in the Adopter card
+        async getAdopterInformation(adopterId) {
+            try {
+                let adopter = [];
+                let result = await adopterInformation({adopterId: adopterId});
+                for (let key in result) {
+                    if (key !== 'Id') {
+                        let cleanKey = key.replace("__c", "").replace("_", " ");
+                        let adopterObject = {'fieldName': cleanKey, 'value': result[key]};
+                        adopter.push(adopterObject);
+                    }
                 }
+                this.adopterObjectFields = adopter;
+            } catch (error) {
+                this.error = error;
+                console.log('YNASC - error: '+JSON.stringify(this.error));
             }
-            this.adopterObjectFields = adopter;
-        })
-        .catch((error) => {
-            console.log('YNASC error: '+JSON.stringify(error));
-        })
-    }
+        }
 
 }
