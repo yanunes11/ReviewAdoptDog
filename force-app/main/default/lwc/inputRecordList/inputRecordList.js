@@ -61,7 +61,7 @@ export default class InputRecordList extends LightningElement {
     //if record has been cleared, send event to parent.
     inputClear(event) {
         if (JSON.stringify(event.currentTarget.dataset) === '{}') {
-            const selectedEvent = new CustomEvent('recordunselected', { detail: true });
+            const selectedEvent = new CustomEvent('recordunselected', { detail: {unselected: true, recordid: this.selectedRecordId} });
             this.dispatchEvent(selectedEvent);
         }
     }

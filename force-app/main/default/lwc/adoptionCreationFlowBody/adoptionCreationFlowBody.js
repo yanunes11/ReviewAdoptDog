@@ -65,7 +65,16 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     }
 
     handleRecordUnselection(event) {
-        this.showCreateAdoptionButton = event.detail === true? false : true;
+        switch (event.detail.recordid) {
+            case this.animalId:
+                this.animalId = '';
+                break;
+        
+            default:
+                this.adopterId = '';
+                break;
+        }
+        this.showCreateAdoptionButton = event.detail.unselected === true? false : true;
     }
 
     // Retrieve animal information to show in the Animal card
