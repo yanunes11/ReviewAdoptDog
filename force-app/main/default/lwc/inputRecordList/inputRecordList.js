@@ -44,12 +44,8 @@ export default class InputRecordList extends LightningElement {
     }
 
     handleInputChange(event) {
+        this.inputClear(event); //if record has been cleared, send event to parent.
 
-        //record input clear, send event to parent.
-        if (JSON.stringify(event.currentTarget.dataset) === '{}') {
-            const selectedEvent = new CustomEvent('recordunselected', { detail: true });
-            this.dispatchEvent(selectedEvent);
-        }
         this.selectedFieldAPIName = ''; // resets the selected object whenever the search box is changed
         const inputVal = event.target.value; // gets search input value
         this.inputValue = inputVal;
@@ -59,6 +55,14 @@ export default class InputRecordList extends LightningElement {
         if (this.autoCompleteOptions.length && inputVal) {
             this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.add('slds-is-open');
             this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.focus();
+        }
+    }
+
+    //if record has been cleared, send event to parent.
+    inputClear(event) {
+        if (JSON.stringify(event.currentTarget.dataset) === '{}') {
+            const selectedEvent = new CustomEvent('recordunselected', { detail: true });
+            this.dispatchEvent(selectedEvent);
         }
     }
 

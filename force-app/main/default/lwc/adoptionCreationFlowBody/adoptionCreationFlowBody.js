@@ -87,23 +87,23 @@ export default class AdoptionCreationFlowBody extends LightningElement {
         }
     }
 
-        // Retrieve adopter information to show in the Adopter card
-        async getAdopterInformation(adopterId) {
-            try {
-                let adopter = [];
-                let result = await adopterInformation({adopterId: adopterId});
-                for (let key in result) {
-                    if (key !== 'Id') {
-                        let cleanKey = key.replace("__c", "").replace("_", " ");
-                        let adopterObject = {'fieldName': cleanKey, 'value': result[key]};
-                        adopter.push(adopterObject);
-                    }
+    // Retrieve adopter information to show in the Adopter card
+    async getAdopterInformation(adopterId) {
+        try {
+            let adopter = [];
+            let result = await adopterInformation({adopterId: adopterId});
+            for (let key in result) {
+                if (key !== 'Id') {
+                    let cleanKey = key.replace("__c", "").replace("_", " ");
+                    let adopterObject = {'fieldName': cleanKey, 'value': result[key]};
+                    adopter.push(adopterObject);
                 }
-                this.adopterObjectFields = adopter;
-            } catch (error) {
-                this.error = error;
-                console.log('YNASC - error: '+JSON.stringify(this.error));
             }
+            this.adopterObjectFields = adopter;
+        } catch (error) {
+            this.error = error;
+            console.log('YNASC - error: '+JSON.stringify(this.error));
         }
+    }
 
 }
