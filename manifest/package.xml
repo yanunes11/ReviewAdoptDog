@@ -60,6 +60,7 @@
 		<members>Animal__c-Animal Layout</members>
 		<members>Medical_Care__c-Medical Care Layout</members>
 		<members>Medical_Cost__c-Medical Cost Layout</members>
+		<members>Trigger_Setting__mdt-Trigger Setting Layout</members>
 		<name>Layout</name>
 	</types>
 	<types>
