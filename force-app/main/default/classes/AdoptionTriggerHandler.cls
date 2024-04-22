@@ -4,34 +4,21 @@
     * @Description : handle the trigger for Adoption object.
     * @log : 2024/03/25 - created
 */
-public with sharing class AdoptionTriggerHandler {
-    private List<Adoption__c> newValuesList;
-    private List<Adoption__c> oldValuesList;
-    private Map<Id, Adoption__c> newMap;
-    private Map<Id, Adoption__c> oldMap;
-    private Map<String, List<Adoption__c>> newOldValuesListMap;
-    private Map<String, Map<Id, Adoption__c>> newOldValuesMap;
-    private String operationType;
+public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterface {
+    private TriggerDataDTO triggerData;
 
-    public AdoptionTriggerHandler(String operationType, Map<String, List<Adoption__c>> newOldValuesListMap, Map<String, Map<Id, Adoption__c>> newOldValuesMap) {
-        System.debug('YNASC AdoptionTriggerHandler');
-        this.newValuesList = newOldValuesListMap.get('new');
-        this.oldValuesList = newOldValuesListMap.get('old');
-        this.newMap = newOldValuesMap.get('newMap');
-        this.oldMap = newOldValuesMap.get('oldMap');
-        this.newOldValuesListMap = newOldValuesListMap;
-        this.newOldValuesMap = newOldValuesMap;
-        this.operationType = operationType;
+    public AdoptionTriggerHandler(TriggerDataDTO triggerData) {
+        this.triggerData = triggerData;
+        System.debug('YNASC this.triggerData: '+this.triggerData);
     }
 
     public void switchOperationType() {
-        System.debug('YNASC operatioType: '+this.operationType);
-        switch on operationType {
+        switch on (String) triggerData.getOperationType() {
             when 'BEFORE_INSERT' {
-                beforeInsert(newValuesList);
+                beforeInsert(this.triggerData);
             } 
             when 'BEFORE_UPDATE' {
-                beforeUpdate(newOldValuesListMap, newOldValuesMap);
+                beforeUpdate(this.triggerData);
             }
             when else {
                 System.debug('when else');
@@ -39,17 +26,17 @@ public with sharing class AdoptionTriggerHandler {
         }
     }
 
-    public void beforeInsert(List<Adoption__c> newRecords) {
+    public void beforeInsert(TriggerDataDTO triggerData) {
         System.debug('YNASC beforeInsert');
-        AdoptionTriggerHelper.checkInsertAnimalHasBeenAdopted(newRecords);
+        AdoptionTriggerHelper.checkInsertAnimalHasBeenAdopted(triggerData);
     }
-    public void beforeUpdate(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap){
+    public void beforeUpdate(TriggerDataDTO triggerData){
         System.debug('YNASC beforeUpdate');
-        AdoptionTriggerHelper.checkUpdateAnimalHasBeenAdopted(newOldAdoptions, newOldAdoptionsMap);
+        AdoptionTriggerHelper.checkUpdateAnimalHasBeenAdopted(triggerData);
     }
-    public void beforeDelete(List<Adoption__c> oldRecords, Map<ID, Adoption__c> oldRecordMap){System.debug('YNASC beforeDelete');}
-    public void afterInsert(List<Adoption__c> newRecords, Map<ID, Adoption__c> newRecordMap){System.debug('YNASC afterInsert');}
-    public void afterUpdate(Map<String, List<Adoption__c>> newOldAdoptions, Map<String, Map<Id, Adoption__c>> newOldAdoptionsMap){System.debug('YNASC afterUpdate');}
-    public void afterDelete(List<Adoption__c> oldRecords, Map<ID, Adoption__c> oldRecordMap){System.debug('YNASC afterDelete');}
-    public void afterUndelete(List<Adoption__c> newRecords, Map<ID, Adoption__c> newRecordMap){System.debug('YNASC afterUndelete');}
+    public void beforeDelete(TriggerDataDTO triggerData){System.debug('YNASC beforeDelete');}
+    public void afterInsert(TriggerDataDTO triggerData){System.debug('YNASC afterInsert');}
+    public void afterUpdate(TriggerDataDTO triggerData){System.debug('YNASC afterUpdate');}
+    public void afterDelete(TriggerDataDTO triggerData){System.debug('YNASC afterDelete');}
+    public void afterUndelete(TriggerDataDTO triggerData){System.debug('YNASC afterUndelete');}
 }
