@@ -17,11 +17,24 @@ public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterf
             when 'BEFORE_INSERT' {
                 beforeInsert(this.triggerData);
             } 
+            when 'AFTER_INSERT' {
+                afterInsert(this.triggerData);
+            }
             when 'BEFORE_UPDATE' {
                 beforeUpdate(this.triggerData);
             }
+            when 'AFTER_UPDATE' {
+                afterUpdate(this.triggerData);
+            }
+            when 'BEFORE_DELETE' {
+                beforeDelete(this.triggerData);
+            }
+            when 'AFTER_DELETE' {
+                beforeDelete(this.triggerData);
+            }
             when else {
-                System.debug('when else');
+                System.debug('Operation Type: '+(String) triggerData.getOperationType());
+                System.debug('Please, create this operation in oyour code.');
             }
         }
     }

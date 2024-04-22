@@ -4,7 +4,7 @@
     * @Description : trigger for Adopter object.
     * @log : 2024/03/25 - created
 */
-trigger AdopterTrigger on Adopter__c (after insert, after update) {
+trigger AdopterTrigger on Adopter__c (before insert, before update, after insert, after update, before delete, after delete, after undelete) {
 
     TriggerDataDTO triggerData = new TriggerDataDTO.Builder()
         .setNewValues(Trigger.new)

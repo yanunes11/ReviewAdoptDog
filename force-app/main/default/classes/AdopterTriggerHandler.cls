@@ -13,12 +13,28 @@ public with sharing class AdopterTriggerHandler implements TriggerHandlerInterfa
     }
 
     public void switchOperationType() {
-        switch on (String) this.triggerData.getOperationType() {
-            when  'AFTER_INSERT' {
+        switch on (String) triggerData.getOperationType() {
+            when 'BEFORE_INSERT' {
+                beforeInsert(this.triggerData);
+            } 
+            when 'AFTER_INSERT' {
                 afterInsert(this.triggerData);
             }
-            when else {
+            when 'BEFORE_UPDATE' {
+                beforeUpdate(this.triggerData);
+            }
+            when 'AFTER_UPDATE' {
                 afterUpdate(this.triggerData);
+            }
+            when 'BEFORE_DELETE' {
+                beforeDelete(this.triggerData);
+            }
+            when 'AFTER_DELETE' {
+                beforeDelete(this.triggerData);
+            }
+            when else {
+                System.debug('Operation Type: '+(String) triggerData.getOperationType());
+                System.debug('Please, create this operation in oyour code.');
             }
         }
     }
