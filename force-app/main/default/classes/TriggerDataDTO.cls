@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/04/22
+    * @Description : to avoid multiple complexes parameters in the triggers, use this class instead that encapsulates the main Trigger context variables 
+    * @log : 2024/04/22 - created
+*/
 public with sharing class TriggerDataDTO {
     private List<SObject> newValues;
     private List<SObject> oldValues;

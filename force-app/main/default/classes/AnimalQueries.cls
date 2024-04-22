@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/03/22
+    * @Description : centralized class to created Animal Queries.
+    * @log : 2024/03/22 - created
+*/
 public with sharing class AnimalQueries {
 
     @AuraEnabled (cacheable = true)

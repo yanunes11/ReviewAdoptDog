@@ -1,3 +1,9 @@
+/*
+    * @author : Yan Nascimento
+    * @Date : 2024/03/22
+    * @Description : test the AdoptionTriggerHelper class.
+    * @log : 2024/03/22 - created
+*/
 @IsTest
 public with sharing class AdoptionTriggerHelperTest {
 
