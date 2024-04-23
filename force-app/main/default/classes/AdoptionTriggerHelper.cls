@@ -85,6 +85,7 @@ public with sharing class AdoptionTriggerHelper {
 
     }
 
+    //Save the Adopter field in the Animal after creating an Adoption
     public static void saveAdopterNameToAnimal(TriggerDataDTO triggerData) {
         List<Adoption__c> newAdoptionList = (List<Adoption__c>) triggerData.getNewValues();
         List<Animal__c> animalToUpdate = new List<Animal__c>();
@@ -94,9 +95,30 @@ public with sharing class AdoptionTriggerHelper {
             animal.Adopter__c = newAdoption.Adopter__c;
             animalToUpdate.add(animal);
         }
-
+        
         if (Schema.sObjectType.Animal__c.fields.Adopter__c.isUpdateable()) {
             update animalToUpdate;
+        }
+    }
+    
+    //Delete the Adopter field in the Animal after deleting an Adoption
+    public static void deleteAdopterFromAnimal(TriggerDataDTO triggerData) {
+        List<Adoption__c> adoptionList = triggerData.getOldValues();
+        Set<Id> animalIds = new Set<Id>();
+        for (Adoption__c adoption : adoptionList) {
+            animalIds.add(adoption.Animal__c);
+        }
+        List<Animal__c> animalList = [
+            SELECT Adopter__c
+            FROM Animal__c
+            WHERE Id IN :animalIds
+            WITH SYSTEM_MODE
+        ];
+        for (Animal__c animal : animalList) {
+            animal.Adopter__c = null;
+        }
+        if (Schema.sObjectType.Animal__c.fields.Adopter__c.isUpdateable()) {
+            update animalList;
         }
     }
 }
