@@ -86,4 +86,19 @@ public with sharing class AdoptionTriggerHelper {
         }
 
     }
+
+    public static void saveAdopterNameToAnimal(TriggerDataDTO triggerData) {
+        List<Adoption__c> newAdoptionList = (List<Adoption__c>) triggerData.getNewValues();
+        List<Animal__c> animalToUpdate = new List<Animal__c>();
+        for (Adoption__c newAdoption : newAdoptionList) {
+            Animal__c animal = new Animal__c();
+            animal.Id = newAdoption.Animal__c;
+            animal.Adopter__c = newAdoption.Adopter__c;
+            animalToUpdate.add(animal);
+        }
+
+        if (Schema.sObjectType.Animal__c.fields.Adopter__c.isUpdateable()) {
+            update animalToUpdate;
+        }
+    }
 }

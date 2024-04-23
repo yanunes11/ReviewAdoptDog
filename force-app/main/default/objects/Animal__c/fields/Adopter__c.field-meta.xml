@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Adopter__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>It can be assigned only programmatically after creating an adoption.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>It can be assigned only programmatically after creating an adoption.</inlineHelpText>
+    <label>Adopter</label>
+    <referenceTo>Adopter__c</referenceTo>
+    <relationshipLabel>Animals</relationshipLabel>
+    <relationshipName>Animals</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

@@ -47,9 +47,15 @@ public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterf
         System.debug('YNASC beforeUpdate');
         AdoptionTriggerHelper.checkUpdateAnimalHasBeenAdopted(triggerData);
     }
+    public void afterUpdate(TriggerDataDTO triggerData){
+        AdoptionTriggerHelper.saveAdopterNameToAnimal(triggerData);
+    }
+    public void afterInsert(TriggerDataDTO triggerData){
+        AdoptionTriggerHelper.saveAdopterNameToAnimal(triggerData);
+        
+    }
+    
     public void beforeDelete(TriggerDataDTO triggerData){System.debug('YNASC beforeDelete');}
-    public void afterInsert(TriggerDataDTO triggerData){System.debug('YNASC afterInsert');}
-    public void afterUpdate(TriggerDataDTO triggerData){System.debug('YNASC afterUpdate');}
     public void afterDelete(TriggerDataDTO triggerData){System.debug('YNASC afterDelete');}
     public void afterUndelete(TriggerDataDTO triggerData){System.debug('YNASC afterUndelete');}
 }
