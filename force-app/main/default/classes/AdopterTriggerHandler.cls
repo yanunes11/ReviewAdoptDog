@@ -40,11 +40,9 @@ public with sharing class AdopterTriggerHandler implements TriggerHandlerInterfa
     }
 
     public void afterInsert(TriggerDataDTO triggerData) {
-        System.debug('YNASC afterInsert');
         AdopterTriggerHelper.getAdopterNameToInsertOnAnimal(triggerData);
     }
     public void afterUpdate(TriggerDataDTO triggerData) {
-        System.debug('YNASC afterUpdate');
         AdopterTriggerHelper.getAdopterNameToInsertOnAnimal(triggerData);
     }
     

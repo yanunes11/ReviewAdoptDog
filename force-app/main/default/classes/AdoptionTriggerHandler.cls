@@ -9,7 +9,6 @@ public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterf
 
     public AdoptionTriggerHandler(TriggerDataDTO triggerData) {
         this.triggerData = triggerData;
-        System.debug('YNASC this.triggerData: '+this.triggerData);
     }
 
     public void switchOperationType() {
@@ -40,11 +39,9 @@ public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterf
     }
 
     public void beforeInsert(TriggerDataDTO triggerData) {
-        System.debug('YNASC beforeInsert');
         AdoptionTriggerHelper.checkInsertAnimalHasBeenAdopted(triggerData);
     }
     public void beforeUpdate(TriggerDataDTO triggerData){
-        System.debug('YNASC beforeUpdate');
         AdoptionTriggerHelper.checkUpdateAnimalHasBeenAdopted(triggerData);
     }
     public void afterUpdate(TriggerDataDTO triggerData){

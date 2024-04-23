@@ -9,7 +9,6 @@ public with sharing class AdoptionTriggerHelper {
     //check the animal status "Adopted" or "Adoption Process" by someone during insert.
     public static void checkInsertAnimalHasBeenAdopted(TriggerDataDTO triggerData) {
         List<Adoption__c> newAdoptionList = triggerData.getNewValues();
-        System.debug('YNASC newAdoptionList: '+newAdoptionList);
         Set<Id> animalIds = new Set<Id>();
         for (Adoption__c newAdoption : newAdoptionList) {
             Id animalId = newAdoption.Animal__c;
@@ -45,7 +44,6 @@ public with sharing class AdoptionTriggerHelper {
 
     //check the animal status "Adopted" or "Adoption Process" by someone during update.
     public static void checkUpdateAnimalHasBeenAdopted(TriggerDataDTO triggerData) {
-        System.debug('YNASC triggerData: '+triggerData);
         List<Adoption__c> newAdoptionList = (List<Adoption__c>) triggerData.getNewValues();
         List<Adoption__c> oldAdoptionList = (List<Adoption__c>) triggerData.getOldValues();
         Set<Id> animalIds = new Set<Id>();
