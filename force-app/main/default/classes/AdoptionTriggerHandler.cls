@@ -12,30 +12,45 @@ public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterf
     }
 
     public void switchOperationType() {
-        switch on (String) triggerData.getOperationType() {
-            when 'BEFORE_INSERT' {
-                beforeInsert(this.triggerData);
-            } 
-            when 'AFTER_INSERT' {
-                afterInsert(this.triggerData);
+        Boolean triggerEnabled = this.isTriggersEnabled();
+        if (triggerEnabled) {            
+            switch on (String) triggerData.getOperationType() {
+                when 'BEFORE_INSERT' {
+                    beforeInsert(this.triggerData);
+                } 
+                when 'AFTER_INSERT' {
+                    afterInsert(this.triggerData);
+                }
+                when 'BEFORE_UPDATE' {
+                    beforeUpdate(this.triggerData);
+                }
+                when 'AFTER_UPDATE' {
+                    afterUpdate(this.triggerData);
+                }
+                when 'BEFORE_DELETE' {
+                    beforeDelete(this.triggerData);
+                }
+                when 'AFTER_DELETE' {
+                    beforeDelete(this.triggerData);
+                }
+                when else {
+                    System.debug('Operation Type: '+(String) triggerData.getOperationType());
+                    System.debug('Please, create this operation in your code.');
+                }
             }
-            when 'BEFORE_UPDATE' {
-                beforeUpdate(this.triggerData);
-            }
-            when 'AFTER_UPDATE' {
-                afterUpdate(this.triggerData);
-            }
-            when 'BEFORE_DELETE' {
-                beforeDelete(this.triggerData);
-            }
-            when 'AFTER_DELETE' {
-                beforeDelete(this.triggerData);
-            }
-            when else {
-                System.debug('Operation Type: '+(String) triggerData.getOperationType());
-                System.debug('Please, create this operation in oyour code.');
-            }
+        } else {
+            System.debug('Triggers Deactivated on Custom Metadata.');
         }
+    }
+
+    public Boolean isTriggersEnabled() {
+        Trigger_Setting__mdt triggerSetting = [
+            SELECT isEnabled__c
+            FROM Trigger_Setting__mdt
+            WITH SYSTEM_MODE
+            LIMIT 1
+        ];
+        return triggerSetting.isEnabled__c;
     }
 
     public void beforeInsert(TriggerDataDTO triggerData) {
