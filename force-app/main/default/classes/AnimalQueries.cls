@@ -9,7 +9,7 @@ public with sharing class AnimalQueries {
     @AuraEnabled (cacheable = true)
     public static Animal__c getAnimalInformationById(String animalId) {
         Animal__c animal = [
-            SELECT Id, Name, Adopter__c
+            SELECT Id, Name
             FROM Animal__c
             WHERE Id = :Id.valueOf(animalId)
             WITH SYSTEM_MODE
