@@ -4,14 +4,12 @@
 		<members>AdopterQueries</members>
 		<members>AdopterTriggerHandler</members>
 		<members>AdopterTriggerHelper</members>
-		<members>AdoptionController</members>
 		<members>AdoptionTriggerHandler</members>
 		<members>AdoptionTriggerHelper</members>
 		<members>AdoptionTriggerHelperTest</members>
 		<members>AnimalQueries</members>
-		<members>GetAdopterInfo</members>
-		<members>GetAdopterInfoTest</members>
 		<members>TestDataFactory</members>
+		<members>TriggerDataDTO</members>
 		<members>TriggerHandlerInterface</members>
 		<name>ApexClass</name>
 	</types>

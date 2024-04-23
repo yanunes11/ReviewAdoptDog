@@ -6,15 +6,15 @@
         <visible>true</visible>
     </applicationVisibilities>
     <classAccesses>
+        <apexClass>AdopterQueries</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>AdopterTriggerHandler</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
         <apexClass>AdopterTriggerHelper</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>AdoptionController</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -34,15 +34,11 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
-        <apexClass>GetAdopterInfo</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
-        <apexClass>GetAdopterInfoTest</apexClass>
-        <enabled>true</enabled>
-    </classAccesses>
-    <classAccesses>
         <apexClass>TestDataFactory</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>TriggerDataDTO</apexClass>
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
@@ -52,7 +48,7 @@
     <custom>false</custom>
     <fieldPermissions>
         <editable>true</editable>
-        <field>Animal__c.Adopter_Name__c</field>
+        <field>Animal__c.Adopter__c</field>
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
@@ -74,6 +70,9 @@
     </layoutAssignments>
     <layoutAssignments>
         <layout>Medical_Cost__c-Medical Cost Layout</layout>
+    </layoutAssignments>
+    <layoutAssignments>
+        <layout>Trigger_Setting__mdt-Trigger Setting Layout</layout>
     </layoutAssignments>
     <objectPermissions>
         <allowCreate>true</allowCreate>

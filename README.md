@@ -18,6 +18,3 @@ Unfortunately, they are facing challenges in managing the influx of animals, coo
 3. Open VS Code and clone the project
 4. Authorize the new org.
 5. Deploy the package.xml on the manifest folder.
-Pos-Deployment:
-On the Setup->App Manager->AdoptDog
-Include the System Administrator profile.
