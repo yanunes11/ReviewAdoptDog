@@ -5,8 +5,7 @@
     * @log : 2024/03/25 - created
 */
 public with sharing class AdopterTriggerHelper {
-    public static void getAdopterNameToInsertOnAnimal(TriggerDataDTO triggerData) {
-        System.debug('YNASC Inside getAdopterNameToInsertOnAnimal - triggerData'+triggerData);
-        
+    public static void mainMethod (TriggerDataDTO triggerData) {
+        System.debug('YNASC - AdopterTriggerHelper - meinMethod');
     }
 }

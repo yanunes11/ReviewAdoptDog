@@ -2,12 +2,18 @@
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
 		<members>AdopterQueries</members>
+		<members>AdopterQueriesTest</members>
 		<members>AdopterTriggerHandler</members>
+		<members>AdopterTriggerHandlerTest</members>
 		<members>AdopterTriggerHelper</members>
+		<members>AdopterTriggerHelperTest</members>
 		<members>AdoptionTriggerHandler</members>
 		<members>AdoptionTriggerHelper</members>
 		<members>AdoptionTriggerHelperTest</members>
 		<members>AnimalQueries</members>
+		<members>AnimalTriggerHandler</members>
+		<members>AnimalTriggerHelper</members>
+		<members>CreateSampleData</members>
 		<members>TestDataFactory</members>
 		<members>TriggerDataDTO</members>
 		<members>TriggerHandlerInterface</members>

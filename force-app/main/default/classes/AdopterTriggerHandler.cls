@@ -32,7 +32,10 @@ public with sharing class AdopterTriggerHandler implements TriggerHandlerInterfa
                     beforeDelete(this.triggerData);
                 }
                 when 'AFTER_DELETE' {
-                    beforeDelete(this.triggerData);
+                    afterDelete(this.triggerData);
+                }
+                when 'AFTER_UNDELETE' {
+                    afterUndelete(this.triggerData);
                 }
                 when else {
                     System.debug('Operation Type: '+(String) triggerData.getOperationType());
@@ -55,15 +58,24 @@ public with sharing class AdopterTriggerHandler implements TriggerHandlerInterfa
     }
 
     public void afterInsert(TriggerDataDTO triggerData) {
-        AdopterTriggerHelper.getAdopterNameToInsertOnAnimal(triggerData);
+        AdopterTriggerHelper.mainMethod(triggerData);
     }
     public void afterUpdate(TriggerDataDTO triggerData) {
-        AdopterTriggerHelper.getAdopterNameToInsertOnAnimal(triggerData);
+        AdopterTriggerHelper.mainMethod(triggerData);
     }
-    
-    public void beforeInsert(TriggerDataDTO triggerData) {System.debug('YNASC beforeInsert');}
-    public void beforeUpdate(TriggerDataDTO triggerData) {System.debug('YNASC beforeUpdate');}
-    public void beforeDelete(TriggerDataDTO triggerData) {System.debug('YNASC beforeDelete');}
-    public void afterDelete(TriggerDataDTO triggerData) {System.debug('YNASC afterDelete');}
-    public void afterUndelete(TriggerDataDTO triggerData) {System.debug('YNASC afterUndelete');}
+    public void beforeInsert(TriggerDataDTO triggerData) {
+        AdopterTriggerHelper.mainMethod(triggerData);
+    }
+    public void beforeUpdate(TriggerDataDTO triggerData) {
+        AdopterTriggerHelper.mainMethod(triggerData);
+    }
+    public void beforeDelete(TriggerDataDTO triggerData) {
+        AdopterTriggerHelper.mainMethod(triggerData);
+    }
+    public void afterDelete(TriggerDataDTO triggerData) {
+        AdopterTriggerHelper.mainMethod(triggerData);
+    }
+    public void afterUndelete(TriggerDataDTO triggerData) {
+        AdopterTriggerHelper.mainMethod(triggerData);
+    }
 }
