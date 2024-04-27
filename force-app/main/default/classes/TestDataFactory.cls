@@ -31,9 +31,7 @@ public with sharing class TestDataFactory {
                 Adoption__c adoption = new Adoption__c();
                 adoption.Animal__c = animalList[i].Id;
                 adoption.Adopter__c = adopterList[i].Id;
-                if (i == 0) {
-                    adoption.Adoption_Stage__c = null;
-                } if (Math.mod(i, 2) == 0) {
+                if (Math.mod(i, 2) == 0) {
                     adoption.Adoption_Stage__c = 'Adopted';
                 } else {
                     adoption.Adoption_Stage__c = 'Adoption Process';
