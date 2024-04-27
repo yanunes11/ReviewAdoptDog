@@ -8,11 +8,14 @@
 		<members>AdopterTriggerHelper</members>
 		<members>AdopterTriggerHelperTest</members>
 		<members>AdoptionTriggerHandler</members>
+		<members>AdoptionTriggerHandlerTest</members>
 		<members>AdoptionTriggerHelper</members>
 		<members>AdoptionTriggerHelperTest</members>
 		<members>AnimalQueries</members>
+		<members>AnimalQueriesTest</members>
 		<members>AnimalTriggerHandler</members>
 		<members>AnimalTriggerHelper</members>
+		<members>AnimalTriggerHelperTest</members>
 		<members>CreateSampleData</members>
 		<members>TestDataFactory</members>
 		<members>TriggerDataDTO</members>
