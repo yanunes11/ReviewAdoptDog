@@ -33,6 +33,9 @@ public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterf
                 when 'AFTER_DELETE' {
                     afterDelete(this.triggerData);
                 }
+                when 'AFTER_UNDELETE' {
+                    afterUndelete(this.triggerData);
+                }
                 when else {
                     System.debug('Operation Type: '+(String) triggerData.getOperationType());
                     System.debug('Please, create this operation in your code.');
@@ -56,13 +59,13 @@ public with sharing class AdoptionTriggerHandler implements TriggerHandlerInterf
     public void beforeInsert(TriggerDataDTO triggerData) {
         AdoptionTriggerHelper.checkInsertAnimalHasBeenAdopted(triggerData);
     }
+    public void afterInsert(TriggerDataDTO triggerData){
+        AdoptionTriggerHelper.saveAdopterNameToAnimal(triggerData);
+    }
     public void beforeUpdate(TriggerDataDTO triggerData){
         AdoptionTriggerHelper.checkUpdateAnimalHasBeenAdopted(triggerData);
     }
     public void afterUpdate(TriggerDataDTO triggerData){
-        AdoptionTriggerHelper.saveAdopterNameToAnimal(triggerData);
-    }
-    public void afterInsert(TriggerDataDTO triggerData){
         AdoptionTriggerHelper.saveAdopterNameToAnimal(triggerData);
     }
     public void afterDelete(TriggerDataDTO triggerData){
