@@ -31,7 +31,10 @@ public with sharing class AnimalTriggerHandler implements TriggerHandlerInterfac
                     beforeDelete(this.triggerData);
                 }
                 when 'AFTER_DELETE' {
-                    beforeDelete(this.triggerData);
+                    afterDelete(this.triggerData);
+                }
+                when 'AFTER_UNDELETE' {
+                    afterUndelete(this.triggerData);
                 }
                 when else {
                     System.debug('Operation Type: '+(String) triggerData.getOperationType());
@@ -54,14 +57,24 @@ public with sharing class AnimalTriggerHandler implements TriggerHandlerInterfac
     }
     
     public void beforeInsert(TriggerDataDTO triggerData) {
-        AnimalTriggerHelper.avoidCreateAdopterDirectlyOnAnimal(triggerData);
+        AnimalTriggerHelper.mainMethod(triggerData);
     }
     public void beforeUpdate(TriggerDataDTO triggerData) {
-        AnimalTriggerHelper.avoidCreateAdopterDirectlyOnAnimal(triggerData);
+        AnimalTriggerHelper.mainMethod(triggerData);
     }
-    public void afterInsert(TriggerDataDTO triggerData) {System.debug('YNASC afterInsert');}
-    public void afterUpdate(TriggerDataDTO triggerData) {System.debug('YNASC afterUpdate');}
-    public void beforeDelete(TriggerDataDTO triggerData) {System.debug('YNASC beforeDelete');}
-    public void afterDelete(TriggerDataDTO triggerData) {System.debug('YNASC afterDelete');}
-    public void afterUndelete(TriggerDataDTO triggerData) {System.debug('YNASC afterUndelete');}
+    public void afterInsert(TriggerDataDTO triggerData) {
+        AnimalTriggerHelper.mainMethod(triggerData);
+    }
+    public void afterUpdate(TriggerDataDTO triggerData) {
+        AnimalTriggerHelper.mainMethod(triggerData);
+    }
+    public void beforeDelete(TriggerDataDTO triggerData) {
+        AnimalTriggerHelper.mainMethod(triggerData);
+    }
+    public void afterDelete(TriggerDataDTO triggerData) {
+        AnimalTriggerHelper.mainMethod(triggerData);
+    }
+    public void afterUndelete(TriggerDataDTO triggerData) {
+        AnimalTriggerHelper.mainMethod(triggerData);
+    }
 }

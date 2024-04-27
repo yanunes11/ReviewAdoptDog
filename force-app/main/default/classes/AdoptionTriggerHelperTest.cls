@@ -276,7 +276,6 @@ public with sharing class AdoptionTriggerHelperTest {
         Adoption__c adoption = [
             SELECT Id, Name
             FROM Adoption__c
-            WITH SYSTEM_MODE
             LIMIT 1
         ];
         delete adoption;
@@ -284,7 +283,6 @@ public with sharing class AdoptionTriggerHelperTest {
             SELECT Id, Name
             FROM Adoption__c
             WHERE Id = :adoption.Id
-            WITH SYSTEM_MODE
             LIMIT 1
             ALL ROWS
         ];
