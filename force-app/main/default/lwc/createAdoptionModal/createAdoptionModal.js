@@ -1,10 +1,7 @@
 import { LightningElement, api } from 'lwc';
 export default class CreateAdoptionModal extends LightningElement {
     //Boolean tracked variable to indicate if modal is open or not default value is false as modal is closed when page is loaded 
-    @api isModalOpen = false; //YNASC - change to false
-    connectedCallback() {
-        this.isModalOpen = true;
-    }
+    @api isModalOpen = false;
     openModal() {
         // to open modal set isModalOpen tarck value as true
         this.isModalOpen = true;

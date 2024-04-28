@@ -1,3 +1,25 @@
 div.slds-modal__container {
-    border-radius: 50px;
+    --slds-c-modal-radius-border: 12px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+}
+
+button.slds-button {
+    border-radius: 12px;
+    height: 40px;
+}
+
+button.slds-button_neutral {
+    width: 100px;
+    color: brown;
+    border-color: #C9C9C9;
+}
+
+button.slds-button_brand {
+    width: 120px;
+    border-color: #3ca454;
+    background-color: #3ca454;
 }
