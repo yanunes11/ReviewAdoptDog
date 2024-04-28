@@ -20,7 +20,8 @@
       <div class="custom-button slds-size_2-of-12">
           <div class="slds-card slds-p-around_medium slds-align_absolute-center">
             <template lwc:if={showCreateAdoptionButton}>
-              <lightning-button variant="success" label="Create Adoption" title="Successful action" onclick={handleClick} class="create-adoption slds-form-element__legend slds-form-element__label slds-m-left_x-small"></lightning-button>
+              <lightning-button variant="success" label="Create Adoption" title="Successful action" onclick={createAdoptionOnClick} class="create-adoption slds-form-element__legend slds-form-element__label slds-m-left_x-small"></lightning-button>
+              
             </template>
             <template lwc:else>
 
@@ -81,4 +82,13 @@
     </div>
     <!-- LISTS - END -->
   </div>
+
+  <!-- MODAL POPUP - START -->
+  <c-create-adoption-modal
+    is-modal-open={isModalOpen}
+    onclosemodal={handleCloseModal}>
+    
+  </c-create-adoption-modal>
+  <!-- MODAL POPUP - END -->
+
 </template>

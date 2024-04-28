@@ -17,6 +17,7 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     @track objectsAnimalList = [];
     @track objectsAdopterMap = {};
     @track objectsAdopterList = [];
+    @track isModalOpen = false;
     @track showCreateAdoptionButton = false;
     dogImage = IMAGE_DOG;
     adopterImage = IMAGE_ADOPTER;
@@ -75,6 +76,14 @@ export default class AdoptionCreationFlowBody extends LightningElement {
                 break;
         }
         this.showCreateAdoptionButton = event.detail.unselected === true? false : true;
+    }
+
+    createAdoptionOnClick() {
+        this.isModalOpen = true;
+    }
+
+    handleCloseModal(event) {
+        this.isModalOpen = event.detail;
     }
 
     // Retrieve animal information to show in the Animal card
