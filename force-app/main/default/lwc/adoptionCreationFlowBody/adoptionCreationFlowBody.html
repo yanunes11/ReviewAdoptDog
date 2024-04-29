@@ -83,12 +83,17 @@
     <!-- LISTS - END -->
   </div>
 
-  <!-- MODAL POPUP - START -->
-  <c-create-adoption-modal
-    is-modal-open={isModalOpen}
-    onclosemodal={handleCloseModal}>
-    
-  </c-create-adoption-modal>
-  <!-- MODAL POPUP - END -->
+  <template lwc:if={isModalOpen}>
+    <!-- MODAL POPUP - START -->
+    <c-create-adoption-modal
+      is-modal-open={isModalOpen}
+      onclosemodal={handleCloseModal}
+      animal-id={animalId}
+      adopter-id={adopterId}
+      animal-fields={animalObjectFields}
+      adopter-fields={adopterObjectFields}>
+    </c-create-adoption-modal>
+    <!-- MODAL POPUP - END -->
+  </template>
 
 </template>
