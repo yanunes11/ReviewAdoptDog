@@ -17,8 +17,31 @@
                 </header>
                 <!-- Modal/Popup Box LWC body starts here -->
                 <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
-                    <div class="name-fields__container">
-                        {animalId}
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-size_3-of-7">
+                            <span class="custom-name-title">Animal Name</span>
+                            <div class="custom-box slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                                {animalName}
+                            </div>
+                        </div>
+                        <!-- ICON - START -->
+                        <div class="slds-size_1-of-7">
+                            <div class="custom-icon">
+                                <lightning-icon
+                                    class="red-icon"
+                                    icon-name="utility:heart"
+                                    alternative-text="create adoption"
+                                    size="large">
+                                </lightning-icon>
+                            </div>
+                        </div>
+                        <!-- ICON - END -->
+                        <div class="slds-size_3-of-7">
+                            <span class="custom-name-title">Adopter Name</span>
+                            <div class="custom-box slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                                {adopterName}
+                            </div>
+                        </div>
                     </div>
                     <p>When Open Modal, the Create Adoption Button should be light gray.</p>
                     <p>After Save, refresh the page or go to Adoption Record Page.</p>

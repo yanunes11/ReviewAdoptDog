@@ -14,7 +14,7 @@ button.slds-button {
 
 button.slds-button_neutral {
     width: 100px;
-    color: brown;
+    color: #5C5C5C;
     border-color: #C9C9C9;
 }
 
@@ -22,4 +22,29 @@ button.slds-button_brand {
     width: 120px;
     border-color: #3ca454;
     background-color: #3ca454;
+}
+
+button.slds-button_brand:hover {
+    background-color: #30844c;
+    border-color: #30844c;
+}
+
+div.custom-box {
+    border-radius: 12px;
+    height: 40px;
+}
+
+span.custom-name-title {
+    margin-left: 10px;
+}
+
+div.slds-size_1-of-7 {
+    display: flex;
+    justify-content: center;
+    height: 63px;
+    align-items: end;
+}
+
+.red-icon{
+    --sds-c-icon-color-foreground-default: red;
 }

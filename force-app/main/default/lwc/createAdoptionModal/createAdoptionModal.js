@@ -6,13 +6,14 @@ export default class CreateAdoptionModal extends LightningElement {
     @api adopterId = '';
     @api animalFields = {};
     @api adopterFields = {};
+    animalName = '';
+    adopterName = '';
 
     connectedCallback() {
+        this.animalName = this.animalFields[0].value;
+        this.adopterName = this.adopterFields[0].value;
         console.log('YNASC animalId: '+JSON.stringify(this.animalId));
         console.log('YNASC adopterId: '+JSON.stringify(this.adopterId));
-        console.log('YNASC animalFields: '+JSON.stringify(this.animalFields.fieldName));
-        console.log('YNASC animalFields: '+JSON.stringify(this.animalFields[0].fieldName));
-        console.log('YNASC adopterFields: '+JSON.stringify(this.adopterFields));
     }
     openModal() {
         // to open modal set isModalOpen tarck value as true
