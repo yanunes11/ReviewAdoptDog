@@ -6,6 +6,8 @@
 */
 public with sharing class AnimalTriggerHelper {
     public static void  mainMethod(TriggerDataDTO triggerData) {
+        Map<Id, Animal__c> newMap = (Map<Id, Animal__c>) triggerData.getMapNew();
+        Map<Id, Animal__c> oldMap = (Map<Id, Animal__c>) triggerData.getMapOld();
         System.debug('YNASC mainMethod');
     }
 }

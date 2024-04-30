@@ -21,33 +21,29 @@ public with sharing class AnimalQueries {
     @AuraEnabled (cacheable = true)
     public static Map<String, FieldProperty> getAvailableAnimalList(){
         Map<String, FieldProperty> animalPropertyMap = new Map<String, FieldProperty>();
-        try {
-            List<Adoption__c> adoptionList = [
-                SELECT Animal__c, Adoption_Stage__c
-                FROM Adoption__c
-                WHERE Adoption_Stage__c = 'Adoption Process' OR Adoption_Stage__c = 'Adopted'
-                WITH SYSTEM_MODE
-            ];
-            Set<Id> animalIds = new Set<Id>();
-            for (Adoption__c adoption : adoptionList) {
-                animalIds.add(adoption.Animal__c);
-            }
-            List<Animal__c> animalList = [
-                SELECT Id, Name, Adopter__c
-                FROM Animal__c
-                WHERE Id NOT IN :animalIds
-                WITH SYSTEM_MODE
-            ];
-            for (Animal__c animal : animalList) {
-                FieldProperty fieldProperty = new FieldProperty();
-                fieldProperty.id = animal.Id;
-                fieldProperty.name = animal.Name;
-                animalPropertyMap.put(animal.Name, fieldProperty);
-            }
-            return animalPropertyMap;
-        } catch (Exception e) {
-            throw new AuraHandledException(e.getMessage());
+        List<Adoption__c> adoptionList = [
+            SELECT Animal__c, Adoption_Stage__c
+            FROM Adoption__c
+            WHERE Adoption_Stage__c = 'Adoption Process' OR Adoption_Stage__c = 'Adopted'
+            WITH SYSTEM_MODE
+        ];
+        Set<Id> animalIds = new Set<Id>();
+        for (Adoption__c adoption : adoptionList) {
+            animalIds.add(adoption.Animal__c);
         }
+        List<Animal__c> animalList = [
+            SELECT Id, Name, Adopter__c
+            FROM Animal__c
+            WHERE Id NOT IN :animalIds
+            WITH SYSTEM_MODE
+        ];
+        for (Animal__c animal : animalList) {
+            FieldProperty fieldProperty = new FieldProperty();
+            fieldProperty.id = animal.Id;
+            fieldProperty.name = animal.Name;
+            animalPropertyMap.put(animal.Name, fieldProperty);
+        }
+        return animalPropertyMap;
     }
 
     public class FieldProperty {
