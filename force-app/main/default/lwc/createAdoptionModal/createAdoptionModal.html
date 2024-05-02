@@ -43,7 +43,14 @@
                             </div>
                         </div>
                     </div>
-                    <p>When Open Modal, the Create Adoption Button should be light gray.</p>
+                    <lightning-combobox 
+                        name="progress" 
+                        label="Stage" 
+                        value="AdoptionProcess"
+                        options={stageOptions} 
+                        onchange={handleAnimalStageChange}>
+                    </lightning-combobox>
+                    <p></p>
                     <p>After Save, refresh the page or go to Adoption Record Page.</p>
                 </div>
                 <!-- Modal/Popup Box LWC footer starts here -->

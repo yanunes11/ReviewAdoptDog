@@ -12,12 +12,12 @@
         <valueSetDefinition>
             <sorted>false</sorted>
             <value>
-                <fullName>Back to Shelter</fullName>
+                <fullName>BacktoShelter</fullName>
                 <default>false</default>
                 <label>Back to Shelter</label>
             </value>
             <value>
-                <fullName>Adoption Process</fullName>
+                <fullName>AdoptionProcess</fullName>
                 <default>false</default>
                 <label>Adoption Process</label>
             </value>

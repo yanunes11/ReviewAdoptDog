@@ -6,7 +6,7 @@
 */
 public with sharing class AdoptionQueries {
 
-    @AuraEnabled
+    @AuraEnabled (cacheable = true)
     public static Map<String, String> retrieveAdoptionStageInfo(){
         schema.DescribeFieldResult adoptionStages = schema.SObjectType.Adoption__c.fields.Adoption_Stage__c.getsObjectField().getDescribe();
         Map<String, String> adoptionStagesMap = new Map<String, String>();
