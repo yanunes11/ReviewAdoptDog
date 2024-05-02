@@ -48,3 +48,26 @@ div.slds-size_1-of-7 {
 .red-icon{
     --sds-c-icon-color-foreground-default: red;
 }
+
+div.slds-size_1-of-1 {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div.slds-size_1-of-2 {
+    margin-bottom: 50px;
+    --sds-c-input-radius-border: 12px;
+    --slds-c-input-color-border: #C9C9C9;
+    --slds-c-input-spacing-horizontal-start: 20px;
+}
+
+div.slds-combobox {
+    height: 40px;
+    align-items: center;
+}
+
+div.slds-listbox {
+    --sds-c-input-radius-border: 12px;
+}

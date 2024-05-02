@@ -8,12 +8,14 @@ export default class CreateAdoptionModal extends LightningElement {
     @api adopterId = '';
     @api animalFields = {};
     @api adopterFields = {};
-    animalName = '';
-    adopterName = '';
+    @track animalName = '';
+    @track adopterName = '';
     @track stageOptions = [];
 
     connectedCallback() {
         if (this.isModalOpen) {
+            this.animalName = this.animalFields[0].value;
+            this.adopterName = this.adopterFields[0].value;
             this.getAdoptionOptionsList();
         }
     }

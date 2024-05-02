@@ -43,13 +43,18 @@
                             </div>
                         </div>
                     </div>
-                    <lightning-combobox 
-                        name="progress" 
-                        label="Stage" 
-                        value="AdoptionProcess"
-                        options={stageOptions} 
-                        onchange={handleAnimalStageChange}>
-                    </lightning-combobox>
+                    <div class="slds-size_1-of-1">
+                        <div class="slds-size_1-of-2">
+                            <lightning-combobox 
+                                class="custom-combobox"
+                                name="progress" 
+                                label="Stage" 
+                                value="AdoptionProcess"
+                                options={stageOptions} 
+                                onchange={handleAnimalStageChange}>
+                            </lightning-combobox>
+                        </div>
+                    </div>
                     <p></p>
                     <p>After Save, refresh the page or go to Adoption Record Page.</p>
                 </div>
