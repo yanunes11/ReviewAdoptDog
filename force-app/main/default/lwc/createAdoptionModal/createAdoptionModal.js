@@ -10,7 +10,7 @@ export default class CreateAdoptionModal extends LightningElement {
     @api adopterFields = {};
     @track animalName = '';
     @track adopterName = '';
-    @track stageOptions = [];
+    @track stageOptionsMap = []; // [{"id":"BacktoShelter","value":"Back to Shelter"},{"id":"AdoptionProcess","value":"Adoption Process"},{"id":"Adopted","value":"Adopted"}]
 
     connectedCallback() {
         if (this.isModalOpen) {
@@ -27,7 +27,6 @@ export default class CreateAdoptionModal extends LightningElement {
         // to close modal set isModalOpen tarck value as false
         const selectedEvent = new CustomEvent('closemodal', { detail: false });
         this.dispatchEvent(selectedEvent);
-        // YNASC this.isModalOpen = false;
     }
 
     handleAnimalStageChange() {
@@ -45,13 +44,22 @@ export default class CreateAdoptionModal extends LightningElement {
     async getAdoptionOptionsList() {
         try {
             let adoptionOptionsMap = await adoptionOptionList();
-            let options = [];
+            let optionsList = [];
+            let optionsMap = [];
             for (var key in adoptionOptionsMap) {
-                options.push({label: key, value: adoptionOptionsMap[key]});
+                optionsMap.push({id : key, value : adoptionOptionsMap[key]});
             }
-            this.stageOptions = options;
+            this.stageOptionsMap = optionsMap;
         } catch (error) {
             
         }
+    }
+
+    handleStageSelected() {
+
+    }
+
+    handleRecordUnselection() {
+
     }
 }

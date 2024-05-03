@@ -12,7 +12,7 @@ public with sharing class AdoptionQueries {
         Map<String, String> adoptionStagesMap = new Map<String, String>();
         for (PicklistEntry ent : adoptionStages.getPicklistValues()) {
             if (ent.isActive()) {
-                adoptionStagesMap.put(ent.getLabel(), ent.getValue());
+                adoptionStagesMap.put(ent.getValue(), ent.getLabel());
             }
         }
         return adoptionStagesMap;

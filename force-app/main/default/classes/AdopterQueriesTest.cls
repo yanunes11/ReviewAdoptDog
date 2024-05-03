@@ -45,7 +45,6 @@ public with sharing class AdopterQueriesTest {
             errorMessage = e.getMessage();
         }
         Test.stopTest();
-        System.debug('YNASC errorMessage: '+errorMessage);
         System.assertEquals(10, adopterPropertyMap.size(), 'It should not be null.');
     }
 }

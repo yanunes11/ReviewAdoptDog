@@ -45,14 +45,13 @@
                     </div>
                     <div class="slds-size_1-of-1">
                         <div class="slds-size_1-of-2">
-                            <lightning-combobox 
-                                class="custom-combobox"
-                                name="progress" 
-                                label="Stage" 
-                                value="AdoptionProcess"
-                                options={stageOptions} 
-                                onchange={handleAnimalStageChange}>
-                            </lightning-combobox>
+                            <!-- COMBOBOX -->
+                            <c-dropdown-custom
+                                input-label="Animal Stage"
+                                object-map={stageOptionsMap} 
+                                onrecordselected={handleStageSelected}
+                                onrecordunselected={handleRecordUnselection}>
+                            </c-dropdown-custom>
                         </div>
                     </div>
                     <p></p>

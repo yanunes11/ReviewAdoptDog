@@ -7,6 +7,8 @@
 		<members>AdopterTriggerHandlerTest</members>
 		<members>AdopterTriggerHelper</members>
 		<members>AdopterTriggerHelperTest</members>
+		<members>AdoptionQueries</members>
+		<members>AdoptionQueriesTest</members>
 		<members>AdoptionTriggerHandler</members>
 		<members>AdoptionTriggerHandlerTest</members>
 		<members>AdoptionTriggerHelper</members>

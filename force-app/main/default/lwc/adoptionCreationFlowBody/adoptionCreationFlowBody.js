@@ -101,7 +101,6 @@ export default class AdoptionCreationFlowBody extends LightningElement {
             this.animalObjectFields = animal;
         } catch (error) {
             this.error = error;
-            console.log('YNASC - error: '+JSON.stringify(this.error));
         }
     }
 
@@ -120,7 +119,6 @@ export default class AdoptionCreationFlowBody extends LightningElement {
             this.adopterObjectFields = adopter;
         } catch (error) {
             this.error = error;
-            console.log('YNASC - error: '+JSON.stringify(this.error));
         }
     }
 
