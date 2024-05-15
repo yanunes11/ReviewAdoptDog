@@ -31,7 +31,11 @@ button.slds-button_brand:hover {
 
 div.custom-box {
     border-radius: 12px;
-    height: 40px;
+    height: 32px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
 }
 
 span.custom-name-title {

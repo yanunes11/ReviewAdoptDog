@@ -5,17 +5,20 @@
     <div class="slds-form-element__control">
         <div class="slds-combobox_container">
 
-            <!-- SEARCH INPUT -->
-            <lightning-input
-                class="customInput"
-                disabled={isObjectSelectionRO}
-                label={inputLabel}
-                type={type}
-                value={selectedFieldNameReference}
-                onclick={handleInputClick}
-                onchange={handleInputChange} 
-                onblur={handleInputOnBlur}>
-            </lightning-input>
+            <!-- CUSTOM DROPDOWN -->
+            <div class="custom-input" onclick={handleInputClick} onchange={handleInputChange} onblur={handleInputOnBlur}>
+                <div class="slds-size_11-of-12 input-custom-text">
+                    {selectedFieldNameReference}
+                </div>
+                <div class="slds-size_1-of-12">
+                    <lightning-icon 
+                        icon-name="utility:down" 
+                        alternative-text="down arrow" 
+                        title="down arrow"
+                        size="xx-small">
+                    </lightning-icon>
+                </div>
+            </div>
 
             <!-- COMBOBOX -->
             <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">

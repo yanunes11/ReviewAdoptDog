@@ -3,6 +3,29 @@ span {
     justify-content: start;
 }
 
+div.custom-input {
+    border-radius: 12px;
+    border: 1px solid;
+    border-color: #C9C9C9;
+    height: 32px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+div.custom-input:hover {
+    transition: border var(--lwc-durationQuickly,0.1s) linear,background-color var(--lwc-durationQuickly,0.1s) linear;
+    /* border: 2px solid #1B96FF;  */
+}
+
+div.input-custom-text {
+    padding-left: var(--slds-c-input-spacing-horizontal-start, var(--sds-c-input-spacing-horizontal-start, var(--lwc-spacingSmall, 0.75rem)));
+}
+
+div.input-custom {
+    margin-bottom: 80px !important;
+}
+
 .customInput {
     --slds-c-input-color-border : var(--slds-g-color-neutral-base-80);
     --slds-c-input-radius-border: 12px;
