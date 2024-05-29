@@ -46,6 +46,7 @@
                     <div class="slds-size_1-of-1">
                         <div class="slds-size_1-of-2">
                             <!-- COMBOBOX -->
+                            Adoption Stage
                             <c-dropdown-custom
                                 input-label="Animal Stage"
                                 object-map={stageOptionsMap} 
@@ -54,13 +55,11 @@
                             </c-dropdown-custom>
                         </div>
                     </div>
-                    <p></p>
-                    <p>After Save, refresh the page or go to Adoption Record Page.</p>
                 </div>
                 <!-- Modal/Popup Box LWC footer starts here -->
                 <footer class="slds-modal__footer">
                     <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
-                    <button class="slds-button slds-button_brand" onclick={submitDetails} title="OK">Save</button>
+                    <button class="slds-button slds-button_brand" onclick={createAdoptionHandle} title="OK">Save</button>
                 </footer>
             </div>
         </section>

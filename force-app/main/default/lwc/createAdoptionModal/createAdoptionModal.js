@@ -1,5 +1,6 @@
 import { LightningElement, api, track } from 'lwc';
 import adoptionOptionList from '@salesforce/apex/AdoptionQueries.retrieveAdoptionStageInfo';
+import createAdoption from '@salesforce/apex/AdoptionServices.createAdoption';
 
 export default class CreateAdoptionModal extends LightningElement {
     //Boolean tracked variable to indicate if modal is open or not default value is false as modal is closed when page is loaded 
@@ -8,6 +9,7 @@ export default class CreateAdoptionModal extends LightningElement {
     @api adopterId = '';
     @api animalFields = {};
     @api adopterFields = {};
+    adoptionStage = '';
     @track animalName = '';
     @track adopterName = '';
     @track stageOptionsMap = []; // [{"id":"BacktoShelter","value":"Back to Shelter"},{"id":"AdoptionProcess","value":"Adoption Process"},{"id":"Adopted","value":"Adopted"}]
@@ -33,14 +35,6 @@ export default class CreateAdoptionModal extends LightningElement {
         console.log('YNASC - handleAnimalStageChange');
     }
 
-    submitDetails() {
-        // to close modal set isModalOpen tarck value as false
-        //Add your code to call apex method or do some processing
-        const selectedEvent = new CustomEvent('closemodal', { detail: false });
-        this.dispatchEvent(selectedEvent);
-        this.isModalOpen = false;
-    }
-
     async getAdoptionOptionsList() {
         try {
             let adoptionOptionsMap = await adoptionOptionList();
@@ -55,11 +49,33 @@ export default class CreateAdoptionModal extends LightningElement {
         }
     }
 
-    handleStageSelected() {
-
+    handleStageSelected(event) {
+        this.adoptionStage = event.detail;
+    }
+    
+    handleRecordUnselection(event) {
+        console.log('YNASC event.detail handleRecordUnselection: '+JSON.stringify(event.detail));
+        
     }
 
-    handleRecordUnselection() {
+    async createAdoptionHandle() {
+        const data = {
+            animalId: this.animalId,
+            adopterId: this.adopterId,
+            adoptionStage: this.adoptionStage
+        };
 
+        try {
+            await createAdoption({ params: data });
+            // Handle success
+            console.log('YNASC - Data processed successfully');
+            const selectedEvent = new CustomEvent('closemodal', { detail: false });
+            this.dispatchEvent(selectedEvent);
+            this.isModalOpen = false;
+        } catch (error) {
+            // Handle error
+            console.error('YNASC - Error processing data: ', error);
+            alert('Error processing data.');
+        }
     }
 }
