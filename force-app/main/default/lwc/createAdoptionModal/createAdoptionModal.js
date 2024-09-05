@@ -58,6 +58,14 @@ export default class CreateAdoptionModal extends LightningElement {
         
     }
 
+    handleApplyClassCustomHeight(event) {
+        this.template.querySelector('.apply-custom-height--inherit')?.classList.add(event.detail.customclass);        
+        }
+        
+        handleRemoveClassCustomHeight(event) {
+        this.template.querySelector('.apply-custom-height--inherit')?.classList.remove(event.detail.customclass);
+    }
+
     async createAdoptionHandle() {
         const data = {
             animalId: this.animalId,
@@ -69,6 +77,8 @@ export default class CreateAdoptionModal extends LightningElement {
             await createAdoption({ params: data });
             // Handle success
             console.log('YNASC - Data processed successfully');
+            const refreshEvent = new CustomEvent('refreshdata', { detail: {} });
+            this.dispatchEvent(refreshEvent);
             const selectedEvent = new CustomEvent('closemodal', { detail: false });
             this.dispatchEvent(selectedEvent);
             this.isModalOpen = false;

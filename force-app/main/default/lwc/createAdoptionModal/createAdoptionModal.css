@@ -2,6 +2,10 @@ div.slds-modal__container {
     --slds-c-modal-radius-border: 12px;
 }
 
+.custom-height--inherit {
+    height: 300px;
+}
+
 footer {
     display: flex;
     justify-content: space-between;

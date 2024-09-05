@@ -41,6 +41,8 @@ export default class DropdownCustom extends LightningElement {
         this.autoCompleteOptions = this.objectMap;
         this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.add('slds-is-open');
         this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.focus();
+        const selectedEvent = new CustomEvent('applyclasscustomheight', { detail: {customclass: 'custom-height--inherit'} });
+        this.dispatchEvent(selectedEvent);
     }
 
     handleInputChange(event) {
@@ -70,6 +72,8 @@ export default class DropdownCustom extends LightningElement {
     handleInputOnBlur(event) {
         setTimeout(() => {
             this.template.querySelector('.slds-combobox.slds-dropdown-trigger.slds-dropdown-trigger_click')?.classList.remove('slds-is-open');
+            const selectedEvent = new CustomEvent('removeclasscustomheight', { detail: {customclass: 'custom-height--inherit'} });
+            this.dispatchEvent(selectedEvent);
         }, 200);
     }
 
