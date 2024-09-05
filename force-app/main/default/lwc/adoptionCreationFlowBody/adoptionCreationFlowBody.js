@@ -19,10 +19,10 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     @track objectsAdopterList = [];
     @track isModalOpen = false;
     @track showCreateAdoptionButton = false;
+    refreshAll = false;
     dogImage = IMAGE_DOG;
     adopterImage = IMAGE_ADOPTER;
-    connectedCallback() { 
-        
+    connectedCallback() {    
         this.getAnimalList();
         this.getAdopterList();
     }
@@ -84,6 +84,21 @@ export default class AdoptionCreationFlowBody extends LightningElement {
 
     handleCloseModal(event) {
         this.isModalOpen = event.detail;
+    }
+
+    async handleRefreshAnimalAndAdopterlist(event) {
+        console.log('YNASC Refresh data in parent');
+        this.refreshAll = true;
+        this.animalId = '';
+        this.adopterId = '';
+        this.objectsAnimalMap = {};
+        this.objectsAnimalList = [];
+        this.objectsAdopterMap = {};
+        this.objectsAdopterList = [];
+        this.animalObjectFields = [];
+        this.adopterObjectFields = [];
+        await this.getAnimalList();
+        await this.getAdopterList();
     }
 
     // Retrieve animal information to show in the Animal card
