@@ -6,11 +6,10 @@
 		<members>AdopterTriggerHandler</members>
 		<members>AdopterTriggerHandlerTest</members>
 		<members>AdopterTriggerHelper</members>
-		<members>AdopterTriggerHelperTest</members>
 		<members>AdoptionQueries</members>
 		<members>AdoptionQueriesTest</members>
+		<members>AdoptionServices</members>
 		<members>AdoptionTriggerHandler</members>
-		<members>AdoptionTriggerHandlerTest</members>
 		<members>AdoptionTriggerHelper</members>
 		<members>AdoptionTriggerHelperTest</members>
 		<members>AnimalQueries</members>
@@ -86,5 +85,5 @@
 		<members>dogDefaultImage</members>
 		<name>StaticResource</name>
 	</types>
-	<version>58.0</version>
+	<version>60.0</version>
 </Package>
