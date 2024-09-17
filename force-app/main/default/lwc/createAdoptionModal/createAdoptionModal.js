@@ -1,6 +1,8 @@
 import { LightningElement, api, track } from 'lwc';
 import adoptionOptionList from '@salesforce/apex/AdoptionQueries.retrieveAdoptionStageInfo';
 import createAdoption from '@salesforce/apex/AdoptionServices.createAdoption';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
 
 export default class CreateAdoptionModal extends LightningElement {
     //Boolean tracked variable to indicate if modal is open or not default value is false as modal is closed when page is loaded 
@@ -85,7 +87,14 @@ export default class CreateAdoptionModal extends LightningElement {
         } catch (error) {
             // Handle error
             console.error('YNASC - Error processing data: ', error.body);
-            alert(error.body.message);
+            // alert(error.body.message); YNASC
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Error Message: ', // Custom title
+                    message: error.body.message, // Error message
+                    variant: 'error' // Type of toast notification
+                })
+            );
         }
     }
 }
