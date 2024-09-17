@@ -44,7 +44,7 @@
             icon-title = "Adopter"
             button-label = "Create Adopter"
             object-api-name = "Adopter__c"
-            object-fields = {adopterObjectFields}
+            object-fields={adopterObjectFields}
             image={adopterImage}>
           </c-create-new-card>
         </div>
@@ -88,7 +88,7 @@
     <c-create-adoption-modal
       is-modal-open={isModalOpen}
       onclosemodal={handleCloseModal}
-      onrefreshdata={handleRefreshAnimalAndAdopterlist}
+      onrefreshdata={handleRefreshPage}
       animal-id={animalId}
       adopter-id={adopterId}
       animal-fields={animalObjectFields}

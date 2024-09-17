@@ -19,9 +19,10 @@ export default class AdoptionCreationFlowBody extends LightningElement {
     @track objectsAdopterList = [];
     @track isModalOpen = false;
     @track showCreateAdoptionButton = false;
-    refreshAll = false;
+    isInputClear = false;
     dogImage = IMAGE_DOG;
     adopterImage = IMAGE_ADOPTER;
+
     connectedCallback() {    
         this.getAnimalList();
         this.getAdopterList();
@@ -86,20 +87,33 @@ export default class AdoptionCreationFlowBody extends LightningElement {
         this.isModalOpen = event.detail;
     }
 
-    async handleRefreshAnimalAndAdopterlist(event) {
-        console.log('YNASC Refresh data in parent');
-        this.refreshAll = true;
+    // Refresh the page after the adoption is successfully saved.
+    handleRefreshPage(event) {
+        console.log('YNASC - '+event.detail.message);
+    
+        // Close the modal
+        this.isModalOpen = false;
+    
+        // Reset selected animal and adopter
         this.animalId = '';
         this.adopterId = '';
+        this.showCreateAdoptionButton = false; // Hide the "Create Adoption" button
+    
+        // Clear object fields
+        this.animalObjectFields = [];
+        this.adopterObjectFields = [];
+    
+        // Clear the existing lists
         this.objectsAnimalMap = {};
         this.objectsAnimalList = [];
         this.objectsAdopterMap = {};
         this.objectsAdopterList = [];
-        this.animalObjectFields = [];
-        this.adopterObjectFields = [];
-        await this.getAnimalList();
-        await this.getAdopterList();
+    
+        // Fetch the updated animal and adopter lists
+        this.getAnimalList();
+        this.getAdopterList();
     }
+    
 
     // Retrieve animal information to show in the Animal card
     async getAnimalInformation(animalId) {

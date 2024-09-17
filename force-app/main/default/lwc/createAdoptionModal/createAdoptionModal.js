@@ -77,7 +77,7 @@ export default class CreateAdoptionModal extends LightningElement {
             await createAdoption({ params: data });
             // Handle success
             console.log('YNASC - Data processed successfully');
-            const refreshEvent = new CustomEvent('refreshdata', { detail: {} });
+            const refreshEvent = new CustomEvent('refreshdata', { detail: {message: 'Adoption record saved successfully'} });
             this.dispatchEvent(refreshEvent);
             const selectedEvent = new CustomEvent('closemodal', { detail: false });
             this.dispatchEvent(selectedEvent);

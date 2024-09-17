@@ -1,6 +1,6 @@
 public with sharing class AdoptionServices {
     @AuraEnabled (cacheable = false)
-    public static void createAdoption(Map<String, String> params) {
+    public static Id createAdoption(Map<String, String> params) {
         Adoption__c newAdoption = new Adoption__c(
             Animal__c = params.get('animalId'),
             Adopter__c = params.get('adopterId'),
@@ -15,5 +15,6 @@ public with sharing class AdoptionServices {
         } else {
             throw new DmlException('No permissions to update.');
         }
+        return newAdoption.Id;
     }
 }

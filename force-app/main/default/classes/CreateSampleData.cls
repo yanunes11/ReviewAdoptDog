@@ -4,7 +4,6 @@
     * @Description : create sample data.
     * @log : 2024/04/23 - created
 */
-@IsTest
 public with sharing class CreateSampleData {
 
     public static void createAllSampleData() {
