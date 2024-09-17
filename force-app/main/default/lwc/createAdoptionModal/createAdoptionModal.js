@@ -84,8 +84,8 @@ export default class CreateAdoptionModal extends LightningElement {
             this.isModalOpen = false;
         } catch (error) {
             // Handle error
-            console.error('YNASC - Error processing data: ', error);
-            alert('Error processing data.');
+            console.error('YNASC - Error processing data: ', error.body);
+            alert(error.body.message);
         }
     }
 }
