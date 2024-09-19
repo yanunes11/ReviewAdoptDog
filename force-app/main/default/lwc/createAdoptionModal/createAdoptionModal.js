@@ -89,10 +89,11 @@ export default class CreateAdoptionModal extends LightningElement {
             console.error('YNASC - Error processing data: ', error.body);
             // alert(error.body.message); YNASC
             this.dispatchEvent(
-                new ShowToastEvent({
+                new ShowToastEvent({ 
                     title: 'Error Message: ', // Custom title
                     message: error.body.message, // Error message
-                    variant: 'error' // Type of toast notification
+                    variant: 'error', // Type of toast notification
+                    mode: 'sticky'
                 })
             );
         }
