@@ -6,18 +6,38 @@
 */
 public with sharing class CreateSampleData {
 
+    //Create a few Animals and Adopters for testing purposes by running the command in Anonymous Execution.
     public static void createAllSampleData() {
-        List<Animal__c> animalList = createAnimalList();
-        if (Schema.sObjectType.Animal__c.isCreateable() || Schema.sObjectType.Animal__c.isUpdateable()) {
-            upsert animalList;
+        Organization currentOrg = [
+            SELECT Id, Name, IsSandbox 
+            FROM Organization
+            WITH SYSTEM_MODE
+        ];
+        if(currentOrg.IsSandbox){
+            System.debug('YNASC This is SandBox'); 
+            List<Animal__c> animalList = createAnimalList();
+            if (Schema.sObjectType.Animal__c.isCreateable() || Schema.sObjectType.Animal__c.isUpdateable()) {
+                upsert animalList;
+            }
+            List<Adopter__c> adopterList = createAdopterList();
+            if (Schema.sObjectType.Adopter__c.isCreateable() || Schema.sObjectType.Adopter__c.isUpdateable()) {
+                upsert adopterList;
+            }
         }
-        List<Adopter__c> adopterList = createAdopterList();
-        if (Schema.sObjectType.Adopter__c.isCreateable() || Schema.sObjectType.Adopter__c.isUpdateable()) {
-            upsert adopterList;
+        else{
+            System.debug('YNASC This is Production'); 
+            List<Animal__c> animalList = createAnimalList();
+            if (Schema.sObjectType.Animal__c.isCreateable() || Schema.sObjectType.Animal__c.isUpdateable()) {
+                upsert animalList;
+            }
+            List<Adopter__c> adopterList = createAdopterList();
+            if (Schema.sObjectType.Adopter__c.isCreateable() || Schema.sObjectType.Adopter__c.isUpdateable()) {
+                upsert adopterList;
+            }
         }
     }
 
-    public static List<Animal__c> createAnimalList() {
+    private static List<Animal__c> createAnimalList() {
         List<Animal__c> animalListToCreate = new List<Animal__c>();
         Animal__c animal1 = new Animal__c(Name = 'Pinduca');
         Animal__c animal2 = new Animal__c(Name = 'Caramelo');
@@ -43,7 +63,7 @@ public with sharing class CreateSampleData {
         return animalListToCreate;
     }
 
-    public static List<Adopter__c> createAdopterList() {
+    private static List<Adopter__c> createAdopterList() {
         List<Adopter__c> adopterListToCreate = new List<Adopter__c>();
         Adopter__c adopter1 = new Adopter__c(Name = 'Carlos');
         Adopter__c adopter2 = new Adopter__c(Name = 'Aldemir');
