@@ -13,6 +13,7 @@ export default class DropdownCustom extends LightningElement {
     @api selectedRecordId = '';
     @api isObjectSelectionRO = false;
     @api isRequired = false;
+    @api placeHolder = 'Set placeHolder to change this message' //placeholder shown in the input before choosing a value on dropdown
     inputValue = '';
 
     connectedCallback() {
@@ -30,6 +31,10 @@ export default class DropdownCustom extends LightningElement {
      */
     get selectedFieldNameReference() {
         return this.selectedFieldAPIName;
+    }
+
+    get isNotSelectedFieldNameReference() {
+        return !this.selectedFieldNameReference;
     }
 
     /**

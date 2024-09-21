@@ -3,7 +3,12 @@ span {
     justify-content: start;
 }
 
-div.custom-input {
+.custom-placeholder{
+    color: gray;
+    opacity: 1;
+}
+
+.custom-input {
     border-radius: 12px;
     border: 1px solid;
     border-color: #C9C9C9;

@@ -5,10 +5,13 @@
     <div class="slds-form-element__control">
         <div class="slds-combobox_container">
 
-            <!-- CUSTOM DROPDOWN -->
+            <!-- INPUT DROPDOWN - START -->
             <div class="custom-input" onclick={handleInputClick} onchange={handleInputChange} onblur={handleInputOnBlur} tabindex="0">
                 <div class="slds-size_11-of-12 input-custom-text">
                     {selectedFieldNameReference}
+                    <div class="custom-placeholder" lwc:if={isNotSelectedFieldNameReference}>
+                        {placeHolder}
+                    </div>
                 </div>
                 <div class="slds-size_1-of-12">
                     <lightning-icon 
@@ -19,8 +22,9 @@
                     </lightning-icon>
                 </div>
             </div>
+            <!-- INPUT DROPDOWN - END -->
 
-            <!-- COMBOBOX -->
+            <!-- DROPDOWN LIST - START -->
             <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click">
                 <div class="slds-dropdown slds-dropdown_length-5 slds-dropdown_fluid" role="listbox">
                     <ul class="slds-listbox slds-listbox_vertical" role="presentation">
@@ -39,6 +43,7 @@
                     </ul>
                 </div>
             </div>
+            <!-- DROPDOWN LIST - END -->
         </div>
     </div>
 
