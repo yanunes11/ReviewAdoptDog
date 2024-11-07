@@ -62,7 +62,14 @@
                 <!-- Modal/Popup Box LWC footer starts here -->
                 <footer class="slds-modal__footer">
                     <button class="slds-button slds-button_neutral" onclick={closeModal} title="Cancel">Cancel</button>
-                    <button class="slds-button slds-button_brand" onclick={createAdoptionHandle} title="OK">Save</button>
+                    <button class="slds-button slds-button_brand" onclick={createAdoptionHandler} title="OK">
+                        <template lwc:if={isSaveLoading}> 
+                            <lightning-spinner alternative-text="Loading" size="x-small"></lightning-spinner>
+                        </template>
+                        <template lwc:if={isNotSaveLoading}> 
+                            Save
+                        </template>
+                    </button>
                 </footer>
             </div>
         </section>

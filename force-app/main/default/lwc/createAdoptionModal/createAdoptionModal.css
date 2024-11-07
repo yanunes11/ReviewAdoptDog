@@ -33,6 +33,15 @@ button.slds-button_brand:hover {
     border-color: #30844c;
 }
 
+.slds-spinner_container{
+    position: relative;
+    display: inline-block;
+    background-color: transparent;
+    width: 80px;
+    height: 80px;
+    mix-blend-mode: color-dodge;
+}
+
 div.custom-box {
     border-radius: 12px;
     height: 32px;

@@ -15,6 +15,12 @@ export default class CreateAdoptionModal extends LightningElement {
     @track animalName = '';
     @track adopterName = '';
     @track stageOptionsMap = []; // [{"id":"BacktoShelter","value":"Back to Shelter"},{"id":"AdoptionProcess","value":"Adoption Process"},{"id":"Adopted","value":"Adopted"}]
+    isSaveLoading = false; //Show Loading on Save button
+
+    // Display the Save text and hide the loading on Save button.
+    get isNotSaveLoading() {
+        return !this.isSaveLoading;
+    }
 
     connectedCallback() {
         if (this.isModalOpen) {
@@ -23,10 +29,12 @@ export default class CreateAdoptionModal extends LightningElement {
             this.getAdoptionOptionsList();
         }
     }
+
     openModal() {
         // to open modal set isModalOpen tarck value as true
         this.isModalOpen = true;
     }
+
     closeModal() {
         // to close modal set isModalOpen tarck value as false
         const selectedEvent = new CustomEvent('closemodal', { detail: false });
@@ -68,7 +76,9 @@ export default class CreateAdoptionModal extends LightningElement {
         this.template.querySelector('.apply-custom-height--inherit')?.classList.remove(event.detail.customclass);
     }
 
-    async createAdoptionHandle() {
+    async createAdoptionHandler() {
+        this.isSaveLoading = true;
+        
         const data = {
             animalId: this.animalId,
             adopterId: this.adopterId,
@@ -83,6 +93,7 @@ export default class CreateAdoptionModal extends LightningElement {
             this.dispatchEvent(refreshEvent);
             const selectedEvent = new CustomEvent('closemodal', { detail: false });
             this.dispatchEvent(selectedEvent);
+            this.isSaveLoading = true;
             this.isModalOpen = false;
         } catch (error) {
             // Handle error
@@ -96,6 +107,7 @@ export default class CreateAdoptionModal extends LightningElement {
                     mode: 'sticky'
                 })
             );
+            this.isSaveLoading = true;
         }
     }
 }
