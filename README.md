@@ -14,7 +14,7 @@ Unfortunately, they are facing challenges in managing the influx of animals, coo
 5. Deploy the package.xml on the manifest folder.
 6. Open the org on broswer and search for the AdoptDog app on the "Search Apps and Items...".
 
-# Creaate Sample Data
+# Create Sample Data
 
 **On Developer Console**
 1. In your Salesforce org, open the **Developer Console**.
